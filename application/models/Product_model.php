@@ -56,6 +56,28 @@ class Product_model extends MY_Model
         return $validationRules;
     }
 
+    public function uploadImages($fieldName, $fileName)
+    {
+        $config['upload_path']      = './assets/images/product';
+        $config['file_name']        = $fileName;
+        $config['allowed_types']    = 'gif|jpg|png|JPG|PNG|jpeg';
+        $config['max_size']         = 1024;
+        $config['max_width']        = 0;
+        $config['max_height']       = 0;
+        $config['overwrite']        = true;
+        $config['file_ext_tolower'] = true;
+        
+        $this->load->library('upload', $config);
+        
+        if ($this->upload->do_upload($fieldName)){
+            return $this->upload->data();
+        }
+        else{
+            $this->session->set_flashdata('image_error', $this->upload->display_errors('', ''));
+            return false;
+        }
+    }
+
 }
 
 /* End of file Product_model.php */
