@@ -1,12 +1,8 @@
 <main role="main" class="container">
     <div class="row">
         <div class="col-md-8 mx-auto">
-
+        <h4 class="pt-3 pb-3">Form Kategori</h4>
             <div class="card">
-                <div class="card-header">
-                    <span>Formulir Kategori</span>
-                </div>
-
                 <div class="card-body">
                     <?= form_open($form_action, ['method' => 'POST']); ?>
                         <?= isset($input->id) ? form_hidden('id', $input->id) : '' ?>

@@ -2,10 +2,9 @@
     <?php $this->load->view('layouts/alert'); ?>
     <div class="row">
         <div class="col-md-10 mx-auto">
-
+        <h4 class="pt-3 pb-3">Kategori</h4>
             <div class="card">
                 <div class="card-header">
-                    <span>Kategori</span>
                     <a href="<?= base_url('category/create'); ?>" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i>
                         Tambah</a>
 
