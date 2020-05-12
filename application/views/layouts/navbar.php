@@ -19,7 +19,7 @@
                         <a href="<?= base_url('category'); ?>" class="dropdown-item">Kategori</a>
                         <a href="<?= base_url('product'); ?>" class="dropdown-item">Produk</a>
                         <a href="<?= base_url(); ?>" class="dropdown-item">Order</a>
-                        <a href="<?= base_url(); ?>" class="dropdown-item">Pengguna</a>
+                        <a href="<?= base_url('user'); ?>" class="dropdown-item">Pengguna</a>
                     </div>
                 </li>
             </ul>
