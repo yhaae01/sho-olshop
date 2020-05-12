@@ -1,11 +1,8 @@
 <main role="main" class="container">
     <div class="row">
         <div class="col-md-10 mx-auto">
-
+        <h4 class="pt-3 pb-3">Form Produk</h4>
             <div class="card">
-                <div class="card-header">
-                    <span>Form Produk</span>
-                </div>
 
                 <div class="card-body">
                     <?php echo form_open_multipart($form_action, ['method' => 'POST']);?>
@@ -48,6 +45,10 @@
                             <?php if ($this->session->flashdata('image_error')) : ?>
                                 <small class="form-text text-danger"><?= $this->session->flashdata('image_error') ?></small>
                             <?php endif ?>
+
+                            <?php if ($input->image) :?>
+                                <img src="<?= base_url("/assets/images/product/$input->image") ?>" height="150">
+                            <?php endif; ?>
                         </div>
                         <div class="form-group">
                             <label for="slug">Slug</label>

@@ -2,10 +2,11 @@
     <?php $this->load->view('layouts/alert'); ?>
     <div class="row">
         <div class="col-md-10 mx-auto">
+        <h4 class="pt-3 pb-3">Produk</h4>
 
             <div class="card">
                 <div class="card-header">
-                    <span>Produk</span>
+                    <!-- <span>Produk</span> -->
                     <a href="<?= base_url('product/create'); ?>" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i>
                         Tambah</a>
 
@@ -61,7 +62,7 @@
                                 <td><?= $row->is_available ? 'Tersedia' : 'Kosong' ?></td>
                                 <td>
                                     <form action="">
-                                        <a href="">
+                                        <a href="<?= base_url("/product/edit/$row->id") ?>">
                                             <button class="btn btn-sm">
                                                 <i class="fas fa-edit text-info"></i>
                                             </button>
