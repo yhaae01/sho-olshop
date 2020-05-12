@@ -6,21 +6,20 @@
 
             <div class="card">
                 <div class="card-header">
-                    <!-- <span>Produk</span> -->
                     <a href="<?= base_url('product/create'); ?>" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i>
                         Tambah</a>
 
                     <div class="float-right">
-                        <form action="" method="post">
+                        <form action="<?= base_url('product/search') ?>" method="post">
                             <div class="input-group">
-                                <input type="text" class="form-control font-control-sm text-center"
+                                <input type="text" name="keyword" value="<?= $this->session->userdata('keyword'); ?>" class="form-control font-control-sm text-center"
                                     placeholder="Cari . . .">
 
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-primary btn-sm">
                                         <i class="fas fa-fw fa-search"></i>
                                     </button>
-                                    <a href="<?= base_url('category/reset'); ?>" class="btn btn-primary btn-sm">
+                                    <a href="<?= base_url('product/reset'); ?>" class="btn btn-primary btn-sm">
                                         <i class="fas fa-fw fa-eraser"></i>
                                     </a>
                                 </div>
