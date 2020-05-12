@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header">
                     <span>Produk</span>
-                    <a href="" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i>
+                    <a href="<?= base_url('product/create'); ?>" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i>
                         Tambah</a>
 
                     <div class="float-right">

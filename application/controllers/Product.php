@@ -34,7 +34,7 @@ class Product extends MY_Controller {
     public function create()
     {
         if (!$_POST) {
-            $input  = (object) $this->login->getDefaultValues();
+            $input  = (object) $this->product->getDefaultValues();
         } else {
             $input  = (object) $this->input->post(null, true);
         }
@@ -49,7 +49,7 @@ class Product extends MY_Controller {
             }
         }
 
-        if (!$this->product->valdiate()) {
+        if (!$this->product->validate()) {
             $data['title']          = 'Tambah Produk';
             $data['input']          = $input;
             $data['form_action']    = base_url('product/create');
@@ -64,8 +64,26 @@ class Product extends MY_Controller {
         } else {
             $this->session->set_flashdata('error', 'Oops! Terjadi suatu kesalahan.');
         }
-        
+
         redirect(base_url('product'));
+    }
+
+    public function unique_slug()
+    {
+        $slug       = $this->input->post('slug');
+        $id         = $this->input->post('id');
+        $product    = $this->product->where('slug', $slug)->first();
+
+        if ($product) {
+            if ($id == $product->id) {
+                return true;
+            }
+            $this->load->library('form_validation');
+            $this->form_validation->set_message('unique_slug', '%s sudah digunakan!');
+            return false;
+        }
+
+        return true;
     }
 
 }
