@@ -42,8 +42,10 @@ class Cart extends MY_Controller
 			$input				= (object) $this->input->post(null, true);
 			$this->cart->table	= 'product';
 			$product			= $this->cart->where('id', $input->id_product)->first();
-			$subtotal			= $product->price * $input->qty;
-			$this->cart->table	= 'cart';
+            
+            $subtotal			= $product->price * $input->qty;
+            
+            $this->cart->table	= 'cart';
 			$cart				= $this->cart->where('id_user', $this->id)->where('id_product', $input->id_product)->first();
 			
 			if ($cart) {
@@ -76,6 +78,40 @@ class Cart extends MY_Controller
 
 			redirect(base_url(''));
 		}
+    }
+
+    public function update($id)
+    {
+        if (!$_POST || $this->input->post('qty') < 1) {
+			$this->session->set_flashdata('error', 'Kuantitas produk tidak boleh kosong!');
+            redirect(base_url('cart/index'));
+        }
+        
+        $data['content']    = $this->cart->where('id', $id)->first();
+
+        if (!$data['content']) {
+            $this->session->set_flashdata('warning', 'Data tidak ditemukan!');
+            redirect(base_url('cart/index'));
+        }
+
+        $data['input']      = (object) $this->input->post(null, true);
+        $this->cart->table	= 'product';
+        $product			= $this->cart->where('id', $data['content']->id_product)->first();
+        
+        $subtotal           = $data['input']->qty * $product->price;
+        $cart               = [
+            'qty'       => $data['input']->qty,
+            'subtotal'  => $subtotal
+        ];
+
+        $this->cart->table	= 'cart';
+        if ($this->cart->where('id', $id)->update($cart)) {
+            $this->session->set_flashdata('success', 'Produk berhasil ditambahkan!');
+        } else {
+            $this->session->set_flashdata('error', 'Oops! Terjadi kesalahan.');
+        }
+
+        redirect(base_url('cart/index'));
     }
 
 }
