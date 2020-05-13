@@ -26,15 +26,15 @@
 
     function getCart()
     {
-        $CI     =& get_instance();
-        $userId = $CI->session->userdata('id');
+        $CI		=& get_instance();
+		$userId	= $CI->session->userdata('id');
 
-        if ($userId) {
-            $CI->db->where('id_user', $userId)->count_all_results('cart');
-            return $query; 
-        }
+		if ($userId) {
+			$query	= $CI->db->where('id_user', $userId)->count_all_results('cart');
+			return $query;
+		}
 
-        return false;
+		return false;
     }
 
     function hashEncrypt($input)

@@ -34,16 +34,17 @@
                             <a href="<?= base_url("shop/category/$row->category_slug") ?>" class="badge badge-primary"> <i class="fas fa-tags"> <?= $row->category_title ?></i></a>
                         </div>
                         <div class="card-footer">
-                            <form action="">
-                                    <div class="input-group">
-                                        <input type="number" class="form-control"
-                                            placeholder="Jumlah beli . . .">
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-primary">
-                                                Add to cart
-                                            </button>
-                                        </div>
+                            <form action="<?= base_url("cart/add") ?>" method="POST">
+                                <input type="hidden" name="id_product" value="<?= $row->id ?>">
+                                <div class="input-group">
+                                    <input type="number" name="qty" value="1" class="form-control"
+                                        placeholder="Jumlah beli . . .">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-primary">
+                                            Add to cart
+                                        </button>
                                     </div>
+                                </div>
                             </form>
                         </div>
                     </div>
