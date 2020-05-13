@@ -5,24 +5,25 @@
         <h4 class="pt-3 pb-3">Keranjang Belanja</h4>
             <div class="card">
                 <div class="card-body">
-                    <form action="">
-                        <div class="form-group">
-                            <label for="nama">Nama</label>
-                            <input type="text" name="nama" class="form-control">
-                            <small class="form-text text-danger">Nama harus diisi.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="alamat">Alamat</label>
-                            <textarea name="alamat" cols="30" rows="5" class="form-control"></textarea>
-                            <small class="form-text text-danger">Alamat harus diisi.</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="telepon">Telepon</label>
-                            <input type="number" name="telepon" class="form-control">
-                            <small class="form-text text-danger">Nomor telepon harus diisi.</small>
-                        </div>
-                        <button type="submit" class="btn btn-primary"> Simpan </button>
-                    </form>
+                    <form action="<?= base_url("/checkout/create") ?>" method="POST">
+						<div class="form-group">
+							<label for="">Nama</label>
+							<input type="text" class="form-control" name="name" value="<?= $input->name ?>">
+							<?= form_error('name') ?>
+						</div>
+						<div class="form-group">
+							<label for="">Alamat</label>
+							<textarea name="address" id="" cols="30" rows="5" class="form-control"><?= $input->address ?></textarea>
+							<?= form_error('address') ?>
+						</div>
+						<div class="form-group">
+							<label for="">Telepon</label>
+							<input type="text" class="form-control" name="phone" value="<?= $input->phone ?>">
+							<?= form_error('phone') ?>
+						</div>
+
+						<button class="btn btn-primary" type="submit">Simpan</button>
+					</form>
                 </div>
             </div>
         </div>

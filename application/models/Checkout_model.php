@@ -17,27 +17,27 @@ class Checkout_model extends MY_Model
     }
 
     public function getValidationRules()
-    {
-        $validationRules = [
-            [
-                'field' => 'name',
-                'label' => 'Nama',
-                'rules' => 'trim|required'
-            ],
-            [
-                'field' => 'address',
-                'label' => 'Alamat',
-                'rules' => 'trim|required'
-            ],
-            [
-                'field' => 'phone',
-                'label' => 'Nomor Telepon',
-                'rules' => 'trim|required|numeric|max_length[13]'
-            ]
-        ];
+	{
+		$validationRules = [
+			[
+				'field'	=> 'name',
+				'label'	=> 'Nama',
+				'rules'	=> 'trim|required'
+			],
+			[
+				'field'	=> 'address',
+				'label'	=> 'Alamat',
+				'rules'	=> 'trim|required'
+			],
+			[
+				'field'	=> 'phone',
+				'label'	=> 'Telepon',
+				'rules'	=> 'trim|required|max_length[13]'
+			],
+		];
 
-        return $validationRules;
-    }
+		return $validationRules;
+	}
 
 }
 
