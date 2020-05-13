@@ -9,7 +9,7 @@
                     <a href="admin-users-form.html" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i>
                         Tambah</a>
 
-                    <div class="float-right">
+                        <div class="float-right">
                         <form action="<?= base_url('user/search') ?>" method="post">
                             <div class="input-group">
                                 <input type="text" name="keyword" value="<?= $this->session->userdata('keyword'); ?>" class="form-control font-control-sm text-center"
@@ -17,8 +17,11 @@
 
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-primary btn-sm">
-                                        <i class="fas fa-search"></i>
+                                        <i class="fas fa-fw fa-search"></i>
                                     </button>
+                                    <a href="<?= base_url('user/reset'); ?>" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-fw fa-eraser"></i>
+                                    </a>
                                 </div>
                             </div>
                         </form>
@@ -53,17 +56,16 @@
                                 <td><?= ucwords($row->role); ?></td>
                                 <td><?= $row->is_active ? 'Aktif' : 'Tidak Aktif' ?></td>
                                 <td>
-                                    <form action="">
-                                        <a href="">
-                                            <button class="btn btn-sm">
-                                                <i class="fas fa-edit text-info"></i>
-                                            </button>
+                                    <?= form_open(base_url("user/delete/$row->id"), ['method' => 'POST']); ?>
+                                    <?= form_hidden('id', $row->id); ?>
+                                        <a href="<?= base_url("user/edit/$row->id") ?>" class="btn btn-sm">
+                                            <i class="fas fa-edit text-info"></i>
                                         </a>
                                         <button type="submit" class="btn btn-sm"
                                             onclick="return confirm('Yakin ingin hapus?')">
                                             <i class="fas fa-trash text-danger"></i>
                                         </button>
-                                    </form>
+                                    <?= form_close() ?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
