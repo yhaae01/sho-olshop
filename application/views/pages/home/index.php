@@ -10,8 +10,8 @@
                             <div class="card-body">
                                 Kategori: <strong>Semua Kategori</strong>
                                 <span class="float-right">
-                                        Urutkan Harga: <a href="#" class="badge badge-primary">Termurah</a> | <a
-                                            href="#" class="badge badge-danger">Termahal</a>
+                                        Urutkan Harga: <a href="<?= base_url('shop/sortby/asc') ?>" class="badge badge-primary">Termurah</a> | <a
+                                            href="<?= base_url('shop/sortby/desc') ?>" class="badge badge-danger">Termahal</a>
                                 </span>
                             </div>
                         </div>
