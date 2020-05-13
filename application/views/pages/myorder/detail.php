@@ -1,10 +1,7 @@
 <main role="main" class="container">
 	<?php $this->load->view('layouts/alert'); ?>
 	<div class="row">
-		<div class="col-md-3">
-			<?php $this->load->view('layouts/menu'); ?>
-		</div>
-		<div class="col-md-9">
+		<div class="col-md-12">
 			<div class="card">
 				<div class="card-header">
 					Detail Order #<?= $order->invoice ?>

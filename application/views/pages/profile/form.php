@@ -1,10 +1,6 @@
 <main role="main" class="container">
     <div class="row">
-        <div class="col-md-3">
-            <?php $this->load->view('layouts/menu');?>
-        </div>
-
-        <div class="col-md-9">
+        <div class="col-md-12">
         <h4 class="pt-3 pb-3">Form Profile</h4>
             <div class="card">
                 <div class="card-body">
