@@ -39,17 +39,17 @@
                                 <label for="" class="form-check-label">Kosong</label>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="">Gambar</label> <br>
-                            <?= form_upload('image'); ?>
-                            <?php if ($this->session->flashdata('image_error')) : ?>
-                                <small class="form-text text-danger"><?= $this->session->flashdata('image_error') ?></small>
-                            <?php endif ?>
-
-                            <?php if ($input->image) :?>
-                                <img src="<?= base_url("/assets/images/product/$input->image") ?>" height="150">
-                            <?php endif; ?>
-                        </div>
+						<div class="form-group">
+							<label for="">Gambar</label>
+							<br>
+							<?= form_upload('image') ?>
+							<?php if ($this->session->flashdata('image_error')) : ?>
+								<small class="form-text text-danger"><?= $this->session->flashdata('image_error') ?></small>
+							<?php endif ?>
+							<?php if ($input->image): ?>
+								<img src="<?= base_url("assets/images/product/$input->image") ?>" alt="" height="150">
+							<?php endif ?>
+						</div>
                         <div class="form-group">
                             <label for="slug">Slug</label>
                             <?= form_input('slug', $input->slug, ['class' => 'form-control', 'id' => 'slug']); ?>

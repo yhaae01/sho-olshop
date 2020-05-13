@@ -38,38 +38,38 @@ class Product extends MY_Controller {
     public function create()
     {
         if (!$_POST) {
-            $input  = (object) $this->product->getDefaultValues();
-        } else {
-            $input  = (object) $this->input->post(null, true);
-        }
+			$input	= (object) $this->product->getDefaultValues();
+		} else {
+			$input	= (object) $this->input->post(null, true);
+		}
 
-        if (!empty($_FILES) && $_FILES['image']['name'] !== '') {
-            $imageName  = url_title($input->title, '-', true). '-' . date('YmdHis');
-            $upload     = $this->product->uploadImages('image', $imageName);
-            if ($upload) {
-                $input->image   = $upload['file_name'];
-            } else {
-                redirect(base_url('product/create'));
-            }
-        }
+		if (!empty($_FILES) && $_FILES['image']['name'] !== '') {
+			$imageName	= url_title($input->title, '-', true) . '-' . date('YmdHis');
+			$upload		= $this->product->uploadImage('image', $imageName);
+			if ($upload) {
+				$input->image	= $upload['file_name'];
+			} else {
+				redirect(base_url('product/create'));
+			}
+		}
 
         if (!$this->product->validate()) {
-            $data['title']          = 'Tambah Produk';
-            $data['input']          = $input;
-            $data['form_action']    = base_url('product/create');
-            $data['page']           = 'pages/product/form';
+			$data['title']			= 'Tambah Produk';
+			$data['input']			= $input;
+			$data['form_action']	= base_url('product/create');
+			$data['page']			= 'pages/product/form';
 
-            $this->view($data);
-            return;
-        }
+			$this->view($data);
+			return;
+		}
 
         if ($this->product->create($input)) {
-            $this->session->set_flashdata('success', 'Data berhasil disimpan!');
-        } else {
-            $this->session->set_flashdata('error', 'Oops! Terjadi suatu kesalahan.');
-        }
+			$this->session->set_flashdata('success', 'Data berhasil disimpan!');
+		} else {
+			$this->session->set_flashdata('error', 'Oops! Terjadi suatu kesalahan');
+		}
 
-        redirect(base_url('product'));
+		redirect(base_url('product'));
     }
 
     public function edit($id)
@@ -88,34 +88,34 @@ class Product extends MY_Controller {
         }
 
         if (!empty($_FILES) && $_FILES['image']['name'] !== '') {
-            $imageName  = url_title($data['input']->title, '-', true). '-' . date('YmdHis');
-            $upload     = $this->product->uploadImages('image', $imageName);
-            if ($upload) {
-                if ($data['content']->image !== '') {
-                    $this->product->deleteImage($data['content']->image);
-                }
-                $data['input']->image   = $upload['file_name'];
-            } else {
-                redirect(base_url("product/edit/$id"));
-            }
-        }
+			$imageName	= url_title($data['input']->title, '-', true) . '-' . date('YmdHis');
+			$upload		= $this->product->uploadImage('image', $imageName);
+			if ($upload) {
+				if ($data['content']->image !== '') {
+					$this->product->deleteImage($data['content']->image);
+				}
+				$data['input']->image	= $upload['file_name'];
+			} else {
+				redirect(base_url("product/edit/$id"));
+			}
+		}
 
         if (!$this->product->validate()) {
-            $data['title']          = 'Ubah Produk';
-            $data['form_action']    = base_url("product/edit/$id");
-            $data['page']           = 'pages/product/form';
+			$data['title']			= 'Ubah Produk';
+			$data['form_action']	= base_url("product/edit/$id");
+			$data['page']			= 'pages/product/form';
 
-            $this->view($data);
-            return;
-        }
+			$this->view($data);
+			return;
+		}
 
-        if ($this->product->where('id', $id)->update($data['input'])) {
-            $this->session->set_flashdata('success', 'Data berhasil disimpan!');
-        } else {
-            $this->session->set_flashdata('error', 'Oops! Terjadi suatu kesalahan.');
-        }
+		if ($this->product->where('id', $id)->update($data['input'])) {
+			$this->session->set_flashdata('success', 'Data berhasil disimpan!');
+		} else {
+			$this->session->set_flashdata('error', 'Oops! Terjadi suatu kesalahan');
+		}
 
-        redirect(base_url('product'));
+		redirect(base_url('product'));
     }
 
     public function delete($id)

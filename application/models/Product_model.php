@@ -56,7 +56,7 @@ class Product_model extends MY_Model
         return $validationRules;
     }
 
-    public function uploadImages($fieldName, $fileName)
+    public function uploadImage($fieldName, $fileName)
     {
         $config['upload_path']      = './assets/images/product';
         $config['file_name']        = $fileName;
