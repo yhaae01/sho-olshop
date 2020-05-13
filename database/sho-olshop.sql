@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2020 at 10:55 AM
+-- Generation Time: May 13, 2020 at 12:34 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `sho-olshop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_product` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `subtotal` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `id_user`, `id_product`, `qty`, `subtotal`) VALUES
+(1, 1, 1, 2, 30000);
 
 -- --------------------------------------------------------
 
@@ -97,6 +118,12 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `role`, `is_active`, `ima
 --
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -117,6 +144,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `category`
