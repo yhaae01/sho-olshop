@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2020 at 12:34 PM
+-- Generation Time: May 13, 2020 at 03:31 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -36,13 +36,6 @@ CREATE TABLE `cart` (
   `subtotal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `id_user`, `id_product`, `qty`, `subtotal`) VALUES
-(1, 1, 1, 2, 30000);
-
 -- --------------------------------------------------------
 
 --
@@ -62,6 +55,53 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`id`, `slug`, `title`) VALUES
 (1, 'minuman', 'Minuman'),
 (2, 'makanan', 'Makanan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `invoice` varchar(100) NOT NULL,
+  `total` int(11) NOT NULL,
+  `name` varchar(128) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `phone` varchar(13) NOT NULL,
+  `status` enum('waiting','paid','delivered','cancel') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `id_user`, `date`, `invoice`, `total`, `name`, `address`, `phone`, `status`) VALUES
+(5, 1, '2020-05-13', '120200513202859', 110000, 'surya intan permana', 'Jl. Babakan raya', '085214032743', 'waiting');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders_detail`
+--
+
+CREATE TABLE `orders_detail` (
+  `id` int(11) NOT NULL,
+  `id_orders` int(11) NOT NULL,
+  `id_product` int(11) NOT NULL,
+  `qty` int(4) NOT NULL,
+  `subtotal` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders_detail`
+--
+
+INSERT INTO `orders_detail` (`id`, `id_orders`, `id_product`, `qty`, `subtotal`) VALUES
+(6, 5, 5, 2, 50000),
+(7, 5, 1, 4, 60000);
 
 -- --------------------------------------------------------
 
@@ -87,7 +127,7 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`id`, `id_category`, `slug`, `title`, `description`, `price`, `is_available`, `image`) VALUES
 (1, 1, 'lemon-fresco', 'Lemon Fresco', 'Minuman jahe dengan ekstrak Lemon, Fell Fresh\r\nCool & Warm Sensation', 15000, 1, 'Minuman1.png'),
 (2, 1, 'lemongresa-fresco', 'Lemongresa Fresco', 'Minuman rempah sereh, Minuman kekinian banget', 15000, 1, 'Minuman2.png'),
-(4, 1, 'wedang-jahe', 'Wedang Jahe', 'Ini adalah wedang ter-enak di muka bumi', 25000, 1, 'wedang-jahe-20200513152758.png');
+(5, 1, 'wedang-jahe', 'Wedang Jahe', 'Ini adalah wedang', 25000, 1, 'wedang-jahe-20200513174208.png');
 
 -- --------------------------------------------------------
 
@@ -130,6 +170,18 @@ ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders_detail`
+--
+ALTER TABLE `orders_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -149,7 +201,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -158,10 +210,22 @@ ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `orders_detail`
+--
+ALTER TABLE `orders_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`

@@ -51,6 +51,7 @@ class Myorder extends MY_Controller
 			$data['order_confirm']	= $this->myorder->where('id_orders', $data['order']->id)->first();
 		}
 		
+        $data['title']          = 'Detail Order';
 		$data['page']			= 'pages/myorder/detail';
 
 		$this->view($data);
