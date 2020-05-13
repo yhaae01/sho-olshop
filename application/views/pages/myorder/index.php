@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Daftar Orders</div>
+                <div class="card-header">Daftar Pesanan</div>
                 <div class="card-body">
                     <table class="table">
                         <thead>

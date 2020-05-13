@@ -43,8 +43,8 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdown2">
                         <a href="<?= base_url('Profile'); ?>" class="dropdown-item">Profile</a>
-                        <a href="<?= base_url('myorder'); ?>" class="dropdown-item">Orders</a>
-                        <a href="<?= base_url('/logout'); ?>" class="dropdown-item">Logout</a>
+                        <a href="<?= base_url('myorder'); ?>" class="dropdown-item">Pesanan</a>
+                        <a href="<?= base_url('/logout'); ?>" class="dropdown-item">keluar</a>
                     </div>
                 </li>
                 <?php endif; ?>
