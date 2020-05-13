@@ -21,146 +21,40 @@
 
             <!-- Produk -->
             <div class="row">
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <img src="https://placehold.co/100x70" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                        Product Title
-                                </h5>
-                                <p class="card-text"> <strong>Rp.100.000</strong> </p>
-                                <p class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Illum,
-                                        provident voluptatum? Quos praesentium impedit mollitia, fugiat facere
-                                        consequuntur soluta quas incidunt animi? Cumque aspernatur rerum, laborum
-                                        ipsum
-                                        voluptates laudantium incidunt! </p>
-                                <a href="#" class="badge badge-primary"> <i class="fas fa-tags"> Category</i>
-                                </a>
-                            </div>
-                            <div class="card-footer">
-                                <form action="">
-                                        <div class="input-group">
-                                            <input type="number" class="form-control"
-                                                placeholder="Jumlah beli . . .">
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-primary">
-                                                    Add to cart
-                                                </button>
-                                            </div>
+                <?php foreach ($content as $row) :?>
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <img src="<?= $row->image ? base_url("assets/images/product/$row->image") : base_url("assets/images/product/default.jpg"); ?>" height="380" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <?= $row->product_title ?>
+                            </h5>
+                            <p class="card-text"> <strong>Rp.<?= number_format($row->price, 0, ',', '.') ?>,-</strong> </p>
+                            <p class="card-text"> <?= $row->description ?> </p>
+                            <a href="#" class="badge badge-primary"> <i class="fas fa-tags"> <?= $row->category_title ?></i></a>
+                        </div>
+                        <div class="card-footer">
+                            <form action="">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control"
+                                            placeholder="Jumlah beli . . .">
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-primary">
+                                                Add to cart
+                                            </button>
                                         </div>
-                                </form>
-                            </div>
+                                    </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <img src="https://placehold.co/100x70" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                        Product Title
-                                </h5>
-                                <p class="card-text"> <strong>Rp.100.000</strong> </p>
-                                <p class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Illum,
-                                        provident voluptatum? Quos praesentium impedit mollitia, fugiat facere
-                                        consequuntur soluta quas incidunt animi? Cumque aspernatur rerum, laborum
-                                        ipsum
-                                        voluptates laudantium incidunt! </p>
-                                <a href="#" class="badge badge-primary"> <i class="fas fa-tags"> Category</i>
-                                </a>
-                            </div>
-                            <div class="card-footer">
-                                <form action="">
-                                        <div class="input-group">
-                                            <input type="number" class="form-control"
-                                                placeholder="Jumlah beli . . .">
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-primary">
-                                                    Add to cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <img src="https://placehold.co/100x70" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                        Product Title
-                                </h5>
-                                <p class="card-text"> <strong>Rp.100.000</strong> </p>
-                                <p class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Illum,
-                                        provident voluptatum? Quos praesentium impedit mollitia, fugiat facere
-                                        consequuntur soluta quas incidunt animi? Cumque aspernatur rerum, laborum
-                                        ipsum
-                                        voluptates laudantium incidunt! </p>
-                                <a href="#" class="badge badge-primary"> <i class="fas fa-tags"> Category</i>
-                                </a>
-                            </div>
-                            <div class="card-footer">
-                                <form action="">
-                                        <div class="input-group">
-                                            <input type="number" class="form-control"
-                                                placeholder="Jumlah beli . . .">
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-primary">
-                                                    Add to cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card mb-3">
-                            <img src="https://placehold.co/100x70" class="card-img-top" alt="">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                        Product Title
-                                </h5>
-                                <p class="card-text"> <strong>Rp.100.000</strong> </p>
-                                <p class="card-text"> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Illum,
-                                        provident voluptatum? Quos praesentium impedit mollitia, fugiat facere
-                                        consequuntur soluta quas incidunt animi? Cumque aspernatur rerum, laborum
-                                        ipsum
-                                        voluptates laudantium incidunt! </p>
-                                <a href="#" class="badge badge-primary"> <i class="fas fa-tags"> Category</i>
-                                </a>
-                            </div>
-                            <div class="card-footer">
-                                <form action="">
-                                        <div class="input-group">
-                                            <input type="number" class="form-control"
-                                                placeholder="Jumlah beli . . .">
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-primary">
-                                                    Add to cart
-                                                </button>
-                                            </div>
-                                        </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+                <?php endforeach; ?>
             </div>
             <!-- End of Produk -->
 
             <!-- Pagination -->
             <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
+                <?= $pagination; ?>
             </nav>
             <!-- End of Pagination -->
         </div>
