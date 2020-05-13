@@ -7,7 +7,11 @@ class User extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-        
+        $role = $this->session->userdata('role');
+        if ($role !== 'admin') {
+            redirect(base_url('home'));
+            return;
+        }
     }
 
     public function index($page = null)
