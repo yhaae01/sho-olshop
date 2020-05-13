@@ -6,7 +6,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <a href="admin-users-form.html" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i>
+                    <a href="<?= base_url('user/create') ?>" class="btn btn-sm btn-primary"><i class="fas fa-plus"></i>
                         Tambah</a>
 
                         <div class="float-right">

@@ -2,10 +2,8 @@
     <?php $this->load->view('layouts/alert'); ?>
     <div class="row">
         <div class="col-md-8 mx-auto">
+        <h4 class="pt-3 pb-3">Login</h4>
             <div class="card">
-                <div class="card-header">
-                    Login
-                </div>
                 <div class="card-body">
                     <?= form_open('login', ['method' => 'POST']); ?>
                         <div class="form-group">
