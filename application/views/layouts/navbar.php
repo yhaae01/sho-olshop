@@ -42,7 +42,7 @@
                         Hai, <?= ucwords($this->session->userdata('name')); ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdown2">
-                        <a href="#" class="dropdown-item">Profile</a>
+                        <a href="<?= base_url('Profile'); ?>" class="dropdown-item">Profile</a>
                         <a href="#" class="dropdown-item">Orders</a>
                         <a href="<?= base_url('/logout'); ?>" class="dropdown-item">Logout</a>
                     </div>

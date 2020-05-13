@@ -99,7 +99,7 @@ class User extends MY_Controller
         }
 
         if (!$this->user->validate()) {
-            $data['title']          = 'Ubah Produk';
+            $data['title']          = 'Ubah Pengguna';
             $data['form_action']    = base_url("user/edit/$id");
             $data['page']           = 'pages/user/form';
 
