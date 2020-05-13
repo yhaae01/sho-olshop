@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
     <div class="container">
-        <a class="navbar-brand" href="<?= base_url('home'); ?>">Shopaa</a>
+        <a class="navbar-brand" href="<?= base_url('home'); ?>">SHOJIRU</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -18,7 +18,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdown1">
                         <a href="<?= base_url('category'); ?>" class="dropdown-item">Kategori</a>
                         <a href="<?= base_url('product'); ?>" class="dropdown-item">Produk</a>
-                        <a href="<?= base_url(); ?>" class="dropdown-item">Order</a>
+                        <a href="<?= base_url(''); ?>" class="dropdown-item">Order</a>
                         <a href="<?= base_url('user'); ?>" class="dropdown-item">Pengguna</a>
                     </div>
                 </li>
@@ -43,7 +43,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdown2">
                         <a href="<?= base_url('Profile'); ?>" class="dropdown-item">Profile</a>
-                        <a href="#" class="dropdown-item">Orders</a>
+                        <a href="<?= base_url('myorder'); ?>" class="dropdown-item">Orders</a>
                         <a href="<?= base_url('/logout'); ?>" class="dropdown-item">Logout</a>
                     </div>
                 </li>

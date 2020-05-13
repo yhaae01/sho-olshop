@@ -9,7 +9,7 @@
 				<div class="col-md-4">
 					<div class="card">
 						<div class="card-body text-center">
-							<img src="<?= $content->image ? base_url("assets/images/user/$content->image") : base_url("/images/user/avatar.png") ?>" alt="" height="200">
+							<img src="<?= $content->image ? base_url("assets/images/user/$content->image") : base_url("/images/user/avatar.png") ?>" alt="" height="200" width="200">
 						</div>
 					</div>
 				</div>
