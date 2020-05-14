@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2020 at 06:14 AM
+-- Generation Time: May 14, 2020 at 12:20 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -74,6 +74,13 @@ CREATE TABLE `orders` (
   `status` enum('waiting','paid','delivered','cancel') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `id_user`, `date`, `invoice`, `total`, `name`, `address`, `phone`, `status`) VALUES
+(9, 1, '2020-05-14', '120200514114702', 60000, 'surya intan permana', 'bogor', '085214032743', 'cancel');
+
 -- --------------------------------------------------------
 
 --
@@ -90,6 +97,13 @@ CREATE TABLE `orders_confirm` (
   `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `orders_confirm`
+--
+
+INSERT INTO `orders_confirm` (`id`, `id_orders`, `account_name`, `account_number`, `nominal`, `note`, `image`) VALUES
+(4, 9, 'Surya Intan Permana', '0672626793', 60000, '-', '120200514114702-20200514114733.png');
+
 -- --------------------------------------------------------
 
 --
@@ -103,6 +117,13 @@ CREATE TABLE `orders_detail` (
   `qty` int(4) NOT NULL,
   `subtotal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders_detail`
+--
+
+INSERT INTO `orders_detail` (`id`, `id_orders`, `id_product`, `qty`, `subtotal`) VALUES
+(11, 9, 2, 4, 60000);
 
 -- --------------------------------------------------------
 
@@ -151,7 +172,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `role`, `is_active`, `image`) VALUES
-(1, 'surya intan permana', 'surya@gmail.com', '$2y$10$tBvoZfN3tYPk8/ith4H5PeZRLUIVHtXzAVWGnIcYFOBlWKm8kcasy', 'admin', 1, 'surya-intan-permana-20200513155512.jpg');
+(1, 'surya intan permana', 'surya@gmail.com', '$2y$10$tBvoZfN3tYPk8/ith4H5PeZRLUIVHtXzAVWGnIcYFOBlWKm8kcasy', 'admin', 1, 'surya-intan-permana-20200513155512.jpg'),
+(7, 'dhea fahira', 'dhea@gmail.com', '$2y$10$Y7AcI5UFXOUrg.T5l8QEuOQ9g2pgCP9OKJ4O0lJvPnMUdsCprfVyO', 'member', 1, NULL);
 
 --
 -- Indexes for dumped tables
@@ -207,7 +229,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -219,19 +241,19 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `orders_confirm`
 --
 ALTER TABLE `orders_confirm`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `orders_detail`
 --
 ALTER TABLE `orders_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -243,7 +265,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
