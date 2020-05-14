@@ -49,7 +49,7 @@
 			</div>
 
 			<?php if (isset($order_confirm)) : ?>
-			<div class="row mb-3">
+			<div class="row mb-3 mt-5">
 				<div class="col-md-8">
 					<div class="card">
 						<div class="card-header">
@@ -64,7 +64,11 @@
 					</div>
 				</div>
 				<div class="col-md-4">
-					<img src="<?= base_url("assets/images/confirm/$order_confirm->image") ?>" alt="" height="200">
+					<div class="card">
+						<div class="card-body text-center">
+							<img src="<?= base_url("assets/images/confirm/$order_confirm->image") ?>" height="210" width="210">
+						</div>
+					</div>
 				</div>
 			</div>
 			<?php endif ?>
