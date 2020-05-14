@@ -68,6 +68,34 @@ class Order extends MY_Controller
         redirect(base_url("order/detail/$id"));
     }
 
+    public function search($page = null)
+    {
+        if (isset($_POST['keyword'])) {
+            $this->session->set_userdata('keyword', $this->input->post('keyword'));
+        } else {
+            redirect(base_url('order'));
+        }
+
+        $keyword            = $this->session->userdata('keyword');
+
+        $data['title']      = 'Admin Pesanan';
+        $data['content']    = $this->order->like('invoice', $keyword)
+                                ->paginate($page)
+                                ->orderBy('date', 'DESC')
+                                ->get();
+        $data['total_rows'] = $this->order->like('invoice', $keyword)->count(); 
+        $data['pagination'] = $this->order->makePagination(base_url('order/search'), 3, $data['total_rows']);
+        $data['page']       = 'pages/order/index';
+
+        $this->view($data);
+    }
+
+    public function reset()
+    {
+        $this->session->unset_userdata('keyword');
+        redirect(base_url('order'));
+    }
+
 }
 
 /* End of file Order.php */
