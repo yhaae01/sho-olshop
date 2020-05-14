@@ -9,7 +9,9 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="<?= base_url('home'); ?>">Beranda <span class="sr-only">(current)</span></a>
-                </li> 
+                </li>
+                <?php $role = $this->session->userdata('role'); ?>
+                <?php if ($role == 'admin') : ?> 
                 <li class="nav-item ">
                     <a class="nav-link" href="<?= base_url('category'); ?>" class="dropdown-item">Kategori</a>
                 </li>
@@ -22,6 +24,7 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="<?= base_url('user'); ?>" class="dropdown-item">Pengguna</a>  
                 </li>
+                <?php endif; ?>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
