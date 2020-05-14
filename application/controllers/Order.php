@@ -52,6 +52,22 @@ class Order extends MY_Controller
         $this->view($data);
     }
 
+    public function update($id)
+    {
+        if (!$_POST) {
+            $this->session->set_flashdata('error', 'Oops! Terjadi suatu kesalahan.');
+            redirect(base_url("order/detail/$id"));
+        }
+
+        if ($this->order->where('id', $id)->update(['status' => $this->input->post('status')])) {
+            $this->session->set_flashdata('success', 'Data berhasil diubah!');
+        } else {
+            $this->session->set_flashdata('error', 'Oops! Terjadi suatu kesalahan');
+        }
+
+        redirect(base_url("order/detail/$id"));
+    }
+
 }
 
 /* End of file Order.php */

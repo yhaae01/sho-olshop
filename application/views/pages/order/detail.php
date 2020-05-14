@@ -45,13 +45,14 @@
                     </div>
 
                         <div class="card-footer">
-                            <form action="#" method="post">
+                            <form action="<?= base_url("order/update/$order->id"); ?>" method="post">
+                                <input type="hidden" name="id" value="<?= $order->id ?>">
                                 <div class="input-group">
-                                    <select name="" class="form-control">
-                                        <option value="wait">Menunggu Pembayaran</option>
-                                        <option value="paid">Dibayar</option>
-                                        <option value="deliv">Dikirim</option>
-                                        <option value="cancel">Dibatalkan</option>
+                                    <select name="status" class="form-control">
+                                        <option value="waiting" <?= $order->status == 'waiting' ? 'selected' : '' ?>>Menunggu Pembayaran</option>
+                                        <option value="paid" <?= $order->status == 'paid' ? 'selected' : '' ?>>Dibayar</option>
+                                        <option value="delivered" <?= $order->status == 'delivered' ? 'selected' : '' ?>>Dikirim</option>
+                                        <option value="cancel" <?= $order->status == 'cancel' ? 'selected' : '' ?>>Dibatalkan</option>
                                     </select>
                                     <div class="input-group-append">
                                         <button class="btn btn-primary" type="submit">Simpan</button>
@@ -59,6 +60,7 @@
                                 </div>
                             </form>
                         </div>
+
                     </div>
                 </div>
             </div>

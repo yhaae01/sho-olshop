@@ -17,7 +17,7 @@
                     <a class="nav-link" href="<?= base_url('product'); ?>" class="dropdown-item">Produk</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="<?= base_url('order'); ?>" class="dropdown-item">Order</a>                   
+                    <a class="nav-link" href="<?= base_url('order'); ?>" class="dropdown-item">Pesanan</a>                   
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="<?= base_url('user'); ?>" class="dropdown-item">Pengguna</a>  
