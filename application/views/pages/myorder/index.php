@@ -29,9 +29,7 @@
                         </tbody>
                     </table>
                     <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <?= $pagination; ?>
-                        </ul>
+                        <?= $pagination; ?>
                     </nav>
                 </div>
             </div>

@@ -17,7 +17,7 @@
                     <a class="nav-link" href="<?= base_url('product'); ?>" class="dropdown-item">Produk</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="<?= base_url(''); ?>" class="dropdown-item">Order</a>                   
+                    <a class="nav-link" href="<?= base_url('order'); ?>" class="dropdown-item">Pesanan</a>                   
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="<?= base_url('user'); ?>" class="dropdown-item">Pengguna</a>  
@@ -43,7 +43,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdown2">
                         <a href="<?= base_url('Profile'); ?>" class="dropdown-item">Profile</a>
-                        <a href="<?= base_url('myorder'); ?>" class="dropdown-item">Pesanan</a>
+                        <a href="<?= base_url('myorder'); ?>" class="dropdown-item">Pesananku</a>
                         <a href="<?= base_url('/logout'); ?>" class="dropdown-item">Keluar</a>
                     </div>
                 </li>
