@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2020 at 03:31 PM
+-- Generation Time: May 14, 2020 at 06:14 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -74,12 +74,21 @@ CREATE TABLE `orders` (
   `status` enum('waiting','paid','delivered','cancel') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `orders`
+-- Table structure for table `orders_confirm`
 --
 
-INSERT INTO `orders` (`id`, `id_user`, `date`, `invoice`, `total`, `name`, `address`, `phone`, `status`) VALUES
-(5, 1, '2020-05-13', '120200513202859', 110000, 'surya intan permana', 'Jl. Babakan raya', '085214032743', 'waiting');
+CREATE TABLE `orders_confirm` (
+  `id` int(11) NOT NULL,
+  `id_orders` int(11) NOT NULL,
+  `account_name` varchar(128) NOT NULL,
+  `account_number` varchar(50) NOT NULL,
+  `nominal` int(11) NOT NULL,
+  `note` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -94,14 +103,6 @@ CREATE TABLE `orders_detail` (
   `qty` int(4) NOT NULL,
   `subtotal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `orders_detail`
---
-
-INSERT INTO `orders_detail` (`id`, `id_orders`, `id_product`, `qty`, `subtotal`) VALUES
-(6, 5, 5, 2, 50000),
-(7, 5, 1, 4, 60000);
 
 -- --------------------------------------------------------
 
@@ -150,8 +151,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `role`, `is_active`, `image`) VALUES
-(1, 'surya intan permana', 'surya@gmail.com', '$2y$10$tBvoZfN3tYPk8/ith4H5PeZRLUIVHtXzAVWGnIcYFOBlWKm8kcasy', 'admin', 1, 'surya-intan-permana-20200513155512.jpg'),
-(6, 'dhea fahira', 'dhea@gmail.com', 'dheaf123', 'admin', 1, NULL);
+(1, 'surya intan permana', 'surya@gmail.com', '$2y$10$tBvoZfN3tYPk8/ith4H5PeZRLUIVHtXzAVWGnIcYFOBlWKm8kcasy', 'admin', 1, 'surya-intan-permana-20200513155512.jpg');
 
 --
 -- Indexes for dumped tables
@@ -173,6 +173,12 @@ ALTER TABLE `category`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders_confirm`
+--
+ALTER TABLE `orders_confirm`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -201,7 +207,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -213,13 +219,19 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `orders_confirm`
+--
+ALTER TABLE `orders_confirm`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `orders_detail`
 --
 ALTER TABLE `orders_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `product`
