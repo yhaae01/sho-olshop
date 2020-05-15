@@ -1,7 +1,7 @@
 <main role="main" class="container">
     <?php $this->load->view('layouts/alert'); ?>
     <div class="row">
-        <div class="col-md-10 mx-auto">
+        <div class="col-md-12 mx-auto">
         <h4 class="pt-3 pb-3">Pengguna</h4>
 
             <div class="card">
