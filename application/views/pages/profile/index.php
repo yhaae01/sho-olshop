@@ -1,24 +1,32 @@
 <main role="main" class="container">
 	<?php $this->load->view('layouts/alert'); ?>
 	<div class="row">
-		<div class="col-md-12">
-			<div class="row">
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-body text-center">
-							<img src="<?= $content->image ? base_url("assets/images/user/$content->image") : base_url("assets/images/user/default.jpg") ?>" alt="" height="200" width="200">
+		<div class="col-md-3 col-sm-12">
+			<div class="card mb-3">
+				<div class="card-header">Menu</div>
+				<div class="list-group list-group-flush">
+					<li class="list-group-item">
+						<a href="<?= base_url('myorder'); ?>">Pesananku</a>
+					</li>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-9 col-sm-12">
+			<div class="row no-gutters">
+				<div class="card mb-3" style="max-width: 800px;">
+					<div class="row no-gutters">
+						<div class="col-md-4">
+							<img src="<?= $content->image ? base_url("assets/images/user/$content->image") : base_url("assets/images/user/default.jpg") ?>" class="card-img">
+						</div>
+						<div class="col-md-8 mt-3">
+							<div class="card-body">
+								<h4 class="card-title"><?= ucwords($content->name); ?></h4>
+								<h5 class="text-gray-800"><?= $content->email; ?></h5>
+								<a href="<?= base_url("/profile/update/$content->id"); ?>" class="btn btn-primary mt-5">Ubah</a>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-8">
-					<div class="card">
-						<div class="card-body">
-							<p>Nama: <?= $content->name ?></p>
-							<p>E-Mail: <?= $content->email ?></p>
-							<a href="<?= base_url("/profile/update/$content->id") ?>" class="btn btn-primary">Edit</a>
-						</div>
-					</div>
-				</div>
+				</div> 
 			</div>
 		</div>
 	</div>
