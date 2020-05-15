@@ -37,7 +37,7 @@
                             <form action="<?= base_url("cart/add") ?>" method="POST">
                                 <input type="hidden" name="id_product" value="<?= $row->id ?>">
                                 <div class="input-group">
-                                    <input type="number" name="qty" value="1" class="form-control"
+                                    <input type="number" name="qty" value="1" min="0" class="form-control"
                                         placeholder="Jumlah beli . . .">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-primary">

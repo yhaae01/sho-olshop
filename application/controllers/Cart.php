@@ -106,7 +106,7 @@ class Cart extends MY_Controller
 
         $this->cart->table	= 'cart';
         if ($this->cart->where('id', $id)->update($cart)) {
-            $this->session->set_flashdata('success', 'Produk berhasil ditambahkan!');
+            // $this->session->set_flashdata('success', 'Produk berhasil ditambahkan!');
         } else {
             $this->session->set_flashdata('error', 'Oops! Terjadi kesalahan.');
         }
