@@ -45,7 +45,7 @@
                                 <td>
                                     <form action="<?= base_url("cart/delete/$row->id"); ?>" method="POST">
                                         <input type="hidden" name="id" value="<?= $row->id ?>">
-                                        <button type=" submit" class="btn btn-danger" onclick="return confirm('Yakin ingin hapus?')"> 
+                                        <button type="submit" data-toggle="tooltip" title="Hapus barang" class="btn btn-danger" onclick="return confirm('Yakin ingin hapus?')"> 
                                             <i class="fas fa-trash-alt"></i> 
                                         </button>
                                     </form>
