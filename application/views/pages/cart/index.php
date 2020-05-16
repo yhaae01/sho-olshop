@@ -32,7 +32,7 @@
                                     <form action="<?= base_url("cart/update/$row->id"); ?>" method="POST">
                                         <input type="hidden" name="id" value="<?= $row->id ?>">
                                         <div class="input-group">
-                                            <input type="number" name="qty" class="form-control text-center" min="0" style="border: none;" readonly value="<?= $row->qty ?>">
+                                            <input type="number" name="qty" class="form-control text-center" min="0" max="10" style="border: none;" readonly value="<?= $row->qty ?>">
                                                 <button type="submit" class="btn btn-info btn-sm" style="margin-left: 10px; border-radius: 5px"> 
                                                     <i class="fas fa-check"></i> 
                                                 </button>

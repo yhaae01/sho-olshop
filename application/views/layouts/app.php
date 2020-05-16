@@ -45,10 +45,8 @@
             // the number of extra character
             autoSizeBuffer: 1,
             // custom button text
-            buttonDecrement: "-",
-            buttonIncrement: "+",
-            // buttonDecrement: "<i class='fas fa-minus-circle' style='border-radius: 5px'></i>",
-            // buttonIncrement: "<i class='fas fa-plus-circle' style='border-radius: 5px'></i>",
+            buttonDecrement: "<i class='fas fa-minus-circle'></i>",
+            buttonIncrement: "<i class='fas fa-plus-circle'></i>",
             // 'around', 'left', or 'right'
             buttonPosition: 'around'
         });

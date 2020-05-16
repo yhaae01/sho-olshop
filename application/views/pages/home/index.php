@@ -37,7 +37,7 @@
                             <form action="<?= base_url("cart/add") ?>" method="POST">
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <input type="hidden" name="id_product" value="<?= $row->id ?>" style="border-radius: 5px">
-                                    <input type="number" name="qty" value="1" min="0" class="form-control" readonly style="border: none;">
+                                    <input type="number" name="qty" value="1" min="0" max="10" class="form-control" readonly style="border: none;">
                                     <button type="submit" class="btn btn-primary" data-toggle="tooltip" title="Add to Cart" style="height: 30px; padding: 0 10px 0 10px; margin-left: 10px; border-radius: 5px"> <i class="fas fa-cart-plus"></i> </button>
                                 </div>
                             </form>
