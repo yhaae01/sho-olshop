@@ -5,10 +5,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends MY_Controller {
 
     public function index($page = null)
-    {
+	{
+		$this->load->model('Home_model');
         $data['title']      = 'Homepage';
         $data['page']       = 'pages/home/index';
-        $data['content']    = $this->home->select(
+        $data['content']    = $this->Home_model->select(
                 [
                     'product.id', 'product.title AS product_title', 
                     'product.description', 'product.image', 
@@ -22,8 +23,8 @@ class Home extends MY_Controller {
             ->paginate($page)
             ->get();
         
-        $data['total_rows'] = $this->home->where('product.is_available', 1)->count();
-        $data['pagination'] = $this->home->makePagination(
+        $data['total_rows'] = $this->Home_model->where('product.is_available', 1)->count();
+        $data['pagination'] = $this->Home_model->makePagination(
             base_url('home'), 2, $data['total_rows']
         );
         $this->view($data);

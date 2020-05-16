@@ -3,6 +3,10 @@ body {
 	padding-top: 4.5rem;
 }
 
+.btn-group {
+	width: 198px;
+}
+
 .bd-placeholder-img {
 	font-size: 1.125rem;
 	text-anchor: middle;
@@ -39,3 +43,4 @@ body {
 		font-size: 3.5rem;
 	}
 }
+
