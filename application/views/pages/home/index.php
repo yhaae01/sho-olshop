@@ -35,16 +35,9 @@
                         </div>
                         <div class="card-footer">
                             <form action="<?= base_url("cart/add") ?>" method="POST">
-                                <input type="hidden" name="id_product" value="<?= $row->id ?>">
-                                <div class="input-group">
-                                    <input type="number" name="qty" value="1" min="0" class="form-control"
-                                        placeholder="Jumlah beli . . .">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-primary">
-                                            Add to cart
-                                        </button>
-                                    </div>
-                                </div>
+                                <input type="hidden" name="id_product" value="<?= $row->id ?>" style="border-radius: 5px">
+                                    <input type="number" name="qty" value="1" min="0" class="form-control" readonly>
+                                <button type="submit" class="btn btn-primary ml-3"> <i class="fas fa-cart-plus"></i> Add to Cart </button>
                             </form>
                         </div>
                     </div>

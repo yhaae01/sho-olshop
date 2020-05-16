@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/style.css'); ?>">
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/css/all.min.css'); ?>">
+    <!-- JQuery Number -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/jquery.nice-number.min.css'); ?>">
 </head>
 
 <body>
@@ -30,6 +32,27 @@
     <script src="<?= base_url('assets/js/jquery-3.4.1.min.js'); ?>"> </script>
     <script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"> </script>
     <script src="<?= base_url('assets/js/app.js') ?>"></script>
+    <script src="<?= base_url('assets/js/jquery.nice-number.js') ?>"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('input[type="number"]').niceNumber();
+        });
+    </script>
+    <script type="text/javascript">
+        $('input[type="number"]').niceNumber({
+            // auto resize the number input
+            autoSize: true,
+            // the number of extra character
+            autoSizeBuffer: 1,
+            // custom button text
+            buttonDecrement: "-",
+            buttonIncrement: "+",
+            // buttonDecrement: "<i class='fas fa-minus-circle' style='border-radius: 5px'></i>",
+            // buttonIncrement: "<i class='fas fa-plus-circle' style='border-radius: 5px'></i>",
+            // 'around', 'left', or 'right'
+            buttonPosition: 'around'
+        });
+    </script>
 
     </body>
 

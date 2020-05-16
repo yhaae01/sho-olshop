@@ -16,6 +16,13 @@ body {
 	height: 60px;
 }
 
+.nice-number input {
+	vertical-align: middle;
+	-moz-appearance: textfield;
+	box-sizing: content-box;
+	text-align: center;
+	margin: 10px !important;
+}
 /* Warna font */
 .navbar-dark .navbar-nav .nav-link {
 	color: white;
