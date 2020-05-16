@@ -27,6 +27,7 @@ body {
 	text-align: center;
 	margin: 10px !important;
 }
+
 /* Warna font */
 .navbar-dark .navbar-nav .nav-link {
 	color: white;
@@ -34,8 +35,8 @@ body {
 
 /* Warna font hover */
 .navbar-nav .nav-item:hover .nav-link {
-	color: silver;
-	border-bottom: 1px;
+	color: rgb(209, 207, 207);
+	border-bottom: 2px solid white;
 }
 
 @media (min-width: 768px) {
