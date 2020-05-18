@@ -42,6 +42,18 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <?php if ($order->status == 'delivered') : ?>
+                        <form action="<?= base_url("order/updateResi/$order->id"); ?>" method="post">
+                            <div class="col-5">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="resi" placeholder="Masukan resi" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-success" type="submit">Simpan</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <?php endif; ?>
                     </div>
 
                         <div class="card-footer">

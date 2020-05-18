@@ -14,6 +14,9 @@
 					<p>Nama: <?= ucwords($order->name) ?></p>
 					<p>Telepon: <?= $order->phone ?></p>
 					<p>Alamat: <?= $order->address ?></p>
+					<?php if ($order->status == 'delivered') : ?>
+						<p>Resi: <?= $order->resi ?></p>
+					<?php endif; ?>
 					<table class="table">
 						<thead>
 							<tr>

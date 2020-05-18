@@ -68,6 +68,22 @@ class Order extends MY_Controller
         redirect(base_url("order/detail/$id"));
     }
 
+    public function updateResi($id)
+    {
+        if (!$_POST) {
+            $this->session->set_flashdata('error', 'Oops! Terjadi suatu kesalahan.');
+            redirect(base_url("order/detail/$id"));
+        }
+
+        if ($this->order->where('id', $id)->update(['resi' => $this->input->post('resi')])) {
+            $this->session->set_flashdata('success', 'Data berhasil diubah!');
+        } else {
+            $this->session->set_flashdata('error', 'Oops! Terjadi suatu kesalahan');
+        }
+
+        redirect(base_url("order/detail/$id"));
+    }
+
     public function search($page = null)
     {
         if (isset($_POST['keyword'])) {
