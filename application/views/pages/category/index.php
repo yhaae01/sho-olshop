@@ -45,10 +45,10 @@
                                 <td>
                                 <?= form_open("category/delete/$row->id", ['method' => 'POST']); ?>
                                 <?= form_hidden('id', "$row->id"); ?>
-                                    <a href="<?= base_url("category/edit/$row->id") ?>" class="btn btn-sm">
+                                    <a href="<?= base_url("category/edit/$row->id") ?>" title="Ubah kategori" class="btn btn-sm">
                                         <i class="fas fa-edit text-info"></i>
                                     </a>
-                                    <button type="submit" class="btn btn-sm" onclick="return confirm('Yakin ingin hapus?')">
+                                    <button type="submit" class="btn btn-sm" title="Hapus kategori" onclick="return confirm('Yakin ingin hapus?')">
                                         <i class="fas fa-trash text-danger"></i>
                                     </button>
                                 <?= form_close(); ?>

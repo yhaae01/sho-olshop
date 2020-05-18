@@ -33,7 +33,7 @@
                                         <input type="hidden" name="id" value="<?= $row->id ?>">
                                         <div class="input-group">
                                             <input type="number" name="qty" class="form-control text-center" min="0" max="10" style="border: none;" readonly value="<?= $row->qty ?>">
-                                                <button type="submit" class="btn btn-info btn-sm" style="margin-left: 10px; border-radius: 5px"> 
+                                                <button type="submit" title="Tambah barang" class="btn btn-info btn-sm" style="margin-left: 10px; border-radius: 5px"> 
                                                     <i class="fas fa-check"></i> 
                                                 </button>
                                         </div>
@@ -45,13 +45,25 @@
                                 <td>
                                     <form action="<?= base_url("cart/delete/$row->id"); ?>" method="POST">
                                         <input type="hidden" name="id" value="<?= $row->id ?>">
-                                        <button type="submit" data-toggle="tooltip" title="Hapus barang" class="btn btn-danger" onclick="return confirm('Yakin ingin hapus?')"> 
+                                        <button type="submit" data-toggle="tooltip" title="Hapus barang" class="btn btn-sm btn-danger" onclick="return confirm('Yakin ingin hapus?')"> 
                                             <i class="fas fa-trash-alt"></i> 
                                         </button>
                                     </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
+                        <tr>
+                            <td colspan="3"> <strong>Pengiriman:</strong></td>
+                            <td class="text-center">  
+                                <div class="form-group">
+                                    <select class="form-control" name="ekspedisi">
+                                        <option value="jnt">JNT</option>
+                                        <option value="jne">JNE</option>
+                                        <option value="sicepat">Sicepat</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
                             <tr>
                                 <td colspan="3"><strong> Total: </strong></td>
                                 <td class="text-center"><strong> Rp. <?= number_format(array_sum(array_column($content, 'subtotal')), 0, ',', '.'); ?>,- </strong></td>
