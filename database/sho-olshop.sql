@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2020 at 12:20 PM
+-- Generation Time: May 19, 2020 at 09:54 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `sho-olshop`
 --
+
 -- --------------------------------------------------------
 
 --
@@ -34,6 +35,13 @@ CREATE TABLE `cart` (
   `qty` int(11) NOT NULL,
   `subtotal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `id_user`, `id_product`, `qty`, `subtotal`) VALUES
+(20, 1, 2, 1, 15000);
 
 -- --------------------------------------------------------
 
@@ -70,15 +78,16 @@ CREATE TABLE `orders` (
   `name` varchar(128) NOT NULL,
   `address` varchar(255) NOT NULL,
   `phone` varchar(13) NOT NULL,
-  `status` enum('waiting','paid','delivered','cancel') NOT NULL
+  `status` enum('waiting','paid','delivered','cancel') NOT NULL,
+  `resi` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `id_user`, `date`, `invoice`, `total`, `name`, `address`, `phone`, `status`) VALUES
-(9, 1, '2020-05-14', '120200514114702', 60000, 'surya intan permana', 'bogor', '085214032743', 'cancel');
+INSERT INTO `orders` (`id`, `id_user`, `date`, `invoice`, `total`, `name`, `address`, `phone`, `status`, `resi`) VALUES
+(9, 1, '2020-05-14', '120200514114702', 60000, 'surya intan permana', 'bogor', '085214032743', 'paid', 'a');
 
 -- --------------------------------------------------------
 
@@ -172,7 +181,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `role`, `is_active`, `image`) VALUES
 (1, 'surya intan permana', 'surya@gmail.com', '$2y$10$tBvoZfN3tYPk8/ith4H5PeZRLUIVHtXzAVWGnIcYFOBlWKm8kcasy', 'admin', 1, 'surya-intan-permana-20200513155512.jpg'),
-(7, 'dhea fahira', 'dhea@gmail.com', '$2y$10$Y7AcI5UFXOUrg.T5l8QEuOQ9g2pgCP9OKJ4O0lJvPnMUdsCprfVyO', 'member', 1, NULL);
+(7, 'dhea fahira', 'dhea@gmail.com', '$2y$10$560IrnMU0xfHmCeDMf3nXOVtDvf5uGQsnp1bAoHHdKj.7Z7ji3AZe', 'member', 0, NULL);
 
 --
 -- Indexes for dumped tables
@@ -228,7 +237,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `category`
