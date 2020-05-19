@@ -28,6 +28,25 @@ body {
 	margin: 10px !important;
 }
 
+.figure-image {
+	position: relative;
+}
+
+.figure-image a {
+	position: absolute;
+	top: 0;
+	bottom: 8px;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.figure-image:hover a {
+	opacity: 1;
+}
+
 /* Warna font */
 .navbar-dark .navbar-nav .nav-link {
 	color: white;

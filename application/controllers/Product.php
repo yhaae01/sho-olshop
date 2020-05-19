@@ -72,6 +72,17 @@ class Product extends MY_Controller {
 		redirect(base_url('product'));
     }
 
+    public function detail($id)
+    {
+        $data['title']	    = 'Detail Produk';
+        $data['page']		= 'pages/product/detail';
+        $data['product']    = $this->product->getProductById($id);
+        $data['content']    = $this->product->where('id', $id)->first();
+
+        $this->view($data);
+        return;
+    }
+
     public function edit($id)
     {
         $data['content']    = $this->product->where('id', $id)->first();    

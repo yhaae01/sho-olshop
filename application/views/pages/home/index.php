@@ -24,7 +24,14 @@
                 <?php foreach ($content as $row) :?>
                 <div class="col-md-6">
                     <div class="card mb-3">
-                        <img src="<?= $row->image ? base_url("assets/images/product/$row->image") : base_url("assets/images/product/default.jpg"); ?>" height="380" class="card-img-top" alt="">
+                        <figure class="figure">
+                            <div class="figure-image">
+                                <img src="<?= $row->image ? base_url("assets/images/product/$row->image") : base_url("assets/images/product/default.jpg"); ?>" height="380" class="figure-img img-fluid rounded">
+                                <a href="<?= base_url("product/detail/$row->id") ?>" class="d-flex justify-content-center">
+                                    <img src="<?= base_url('assets/images/plus.png') ?>" class="align-self-center" width="45">
+                                </a>
+                            </div>
+                        </figure>
                         <div class="card-body">
                             <h5 class="card-title">
                                 <?= $row->product_title ?>

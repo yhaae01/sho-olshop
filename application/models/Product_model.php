@@ -85,6 +85,11 @@ class Product_model extends MY_Model
         }
     }
 
+    public function getProductById($id)
+    {
+        return $this->db->get_where('product', ['id' => $id])->row_array();
+    }
+
 }
 
 /* End of file Product_model.php */
