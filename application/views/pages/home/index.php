@@ -22,7 +22,7 @@
             <!-- Produk -->
             <div class="row">
                 <?php foreach ($content as $row) :?>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="card mb-3">
                         <figure class="figure">
                             <div class="figure-image">
@@ -37,7 +37,7 @@
                                 <?= $row->product_title ?>
                             </h5>
                             <p class="card-text"> <strong>Rp.<?= number_format($row->price, 0, ',', '.') ?>,-</strong> </p>
-                            <p class="card-text"> <?= $row->description ?> </p>
+                            <!-- <p class="card-text"> <?= $row->description ?> </p> -->
                             <a href="<?= base_url("shop/category/$row->category_slug") ?>" class="badge badge-primary"> <i class="fas fa-tags"> <?= $row->category_title ?></i></a>
                         </div>
                         <div class="card-footer">
