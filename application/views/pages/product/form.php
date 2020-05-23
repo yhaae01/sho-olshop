@@ -20,12 +20,12 @@
                         <div class="form-group">
                             <label for="harga">Harga</label>
                             <?= 
-                            form_input(['type' => 'number', 'name' => 'price', 'value' => $input->price, 'class' => 'form-control']); ?>
+                            form_input(['type' => 'text', 'name' => 'price', 'value' => $input->price, 'class' => 'form-control col-3', 'onkeypress' => 'return hanyaAngka(event)']); ?>
                             <?= form_error('price'); ?>
                         </div>
                         <div class="form-group">
                             <label for="kategori">Kategori</label>
-                            <?= form_dropdown('id_category', getDropdownList('category', ['id', 'title']), $input->id_category, ['class' => 'form-control']); ?>
+                            <?= form_dropdown('id_category', getDropdownList('category', ['id', 'title']), $input->id_category, ['class' => 'form-control col-3']); ?>
                             <?= form_error('id_category'); ?>
                         </div>
                         <div class="form-group">

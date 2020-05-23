@@ -38,6 +38,8 @@
             $('input[type="number"]').niceNumber();
         });
     </script>
+
+    <!-- Sweet Number -->
     <script type="text/javascript">
         $('input[type="number"]').niceNumber({
             // auto resize the number input
@@ -51,6 +53,17 @@
             buttonPosition: 'around'
         });
     </script>
+
+    <!-- Hanya angka -->
+    <script>
+		function hanyaAngka(evt) {
+		  var charCode = (evt.which) ? evt.which : event.keyCode
+		   if (charCode > 31 && (charCode < 48 || charCode > 57))
+ 
+		    return false;
+		  return true;
+		}
+	</script>
 
     </body>
 
