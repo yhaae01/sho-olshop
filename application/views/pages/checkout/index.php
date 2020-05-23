@@ -18,7 +18,7 @@
 						</div>
 						<div class="form-group">
 							<label for="">Telepon</label>
-							<input type="text" class="form-control" name="phone" value="<?= $input->phone ?>">
+							<input type="text" class="form-control col-4" maxlength="13" onkeypress="return hanyaAngka(event)" name="phone" value="<?= $input->phone ?>">
 							<?= form_error('phone') ?>
 						</div>
 
