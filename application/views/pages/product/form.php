@@ -31,12 +31,12 @@
                         <div class="form-group">
                             <label for="">Ada Stok</label> <br>
                             <div class="form-check form-check-inline">
-                                <?= form_radio(['name' => 'is_available', 'value' => 1, 'checked' => $input->is_available == 1 ? true : false, 'class' => 'form-check-input']); ?>
-                                <label for="" class="form-check-label">Tersedia</label>
+                                <?= form_radio(['name' => 'is_available', 'value' => 1, 'checked' => $input->is_available == 1 ? true : false, 'class' => 'form-check-input', 'id' => 'stok']); ?>
+                                <label for="stok" class="form-check-label">Tersedia</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <?= form_radio(['name' => 'is_available', 'value' => 0, 'checked' => $input->is_available == 0 ? true : false, 'class' => 'form-check-input']); ?>
-                                <label for="" class="form-check-label">Kosong</label>
+                                <?= form_radio(['name' => 'is_available', 'value' => 0, 'checked' => $input->is_available == 0 ? true : false, 'class' => 'form-check-input', 'id' => 'stok2']); ?>
+                                <label for="stok2" class="form-check-label">Kosong</label>
                             </div>
                         </div>
 						<div class="form-group">

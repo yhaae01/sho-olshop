@@ -23,25 +23,25 @@
                             <?= form_error('password'); ?>
                         </div>
                         <div class="form-group">
-                            <label for="">Role</label> <br>
+                            <label>Role</label> <br>
                             <div class="form-check form-check-inline">
-                                <?= form_radio(['name' => 'role', 'value' => 'admin', 'checked' => $input->role == 'admin' ? true : false, 'class' => 'form-check-input']); ?>
-                                <label for="" class="form-check-label">Admin</label>
+                                <?= form_radio(['name' => 'role', 'value' => 'admin', 'checked' => $input->role == 'admin' ? true : false, 'class' => 'form-check-input', 'id' => 'role']); ?>
+                                <label for="role" class="form-check-label">Admin</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <?= form_radio(['name' => 'role', 'value' => 'member', 'checked' => $input->role == 'member' ? true : false, 'class' => 'form-check-input']); ?>
-                                <label for="" class="form-check-label">Member</label>
+                                <?= form_radio(['name' => 'role', 'value' => 'member', 'checked' => $input->role == 'member' ? true : false, 'class' => 'form-check-input', 'id' => 'role2']); ?>
+                                <label for="role2" class="form-check-label">Member</label>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="">Status</label> <br>
+                            <label>Status</label> <br>
                             <div class="form-check form-check-inline">
-                                <?= form_radio(['name' => 'is_active', 'value' => '1', 'checked' => $input->is_active == 1 ? true : false, 'class' => 'form-check-input']); ?>
-                                <label for="" class="form-check-label">Aktif</label>
+                                <?= form_radio(['name' => 'is_active', 'value' => '1', 'checked' => $input->is_active == 1 ? true : false, 'class' => 'form-check-input', 'id' => 'status']); ?>
+                                <label for="status" class="form-check-label">Aktif</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <?= form_radio(['name' => 'is_active', 'value' => '0', 'checked' => $input->is_active == 0 ? true : false, 'class' => 'form-check-input']); ?>
-                                <label for="" class="form-check-label">Tidak Aktif</label>
+                                <?= form_radio(['name' => 'is_active', 'value' => '0', 'checked' => $input->is_active == 0 ? true : false, 'class' => 'form-check-input', 'id' => 'status2']); ?>
+                                <label for="status2" class="form-check-label">Tidak Aktif</label>
                             </div>
                         </div>
                         <div class="form-group">
