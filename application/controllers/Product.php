@@ -1,20 +1,16 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Product extends MY_Controller {
-
-    public function __construct()
+class Product extends MY_Controller 
+{
+    public function index($page = null)
     {
-        parent::__construct();
         $role = $this->session->userdata('role');
         if ($role !== 'admin') {
             redirect(base_url('home'));
             return;
         }
-    }
-    
-    public function index($page = null)
-    {
+
         $data['title']      = 'Admin: Produk';
         $data['content']    = $this->product->select(
                 [
@@ -37,6 +33,12 @@ class Product extends MY_Controller {
 
     public function create()
     {
+        $role = $this->session->userdata('role');
+        if ($role !== 'admin') {
+            redirect(base_url('home'));
+            return;
+        }
+
         if (!$_POST) {
 			$input	= (object) $this->product->getDefaultValues();
 		} else {
@@ -73,7 +75,7 @@ class Product extends MY_Controller {
     }
 
     public function detail($id)
-    {
+    {   
         $data['title']	    = 'Detail Produk';
         $data['page']		= 'pages/product/detail';
         $data['product']    = $this->product->getProductById($id);
@@ -85,6 +87,12 @@ class Product extends MY_Controller {
 
     public function edit($id)
     {
+        $role = $this->session->userdata('role');
+        if ($role !== 'admin') {
+            redirect(base_url('home'));
+            return;
+        }
+        
         $data['content']    = $this->product->where('id', $id)->first();    
 
         if (!$data['content']) {
@@ -131,6 +139,12 @@ class Product extends MY_Controller {
 
     public function delete($id)
     {
+        $role = $this->session->userdata('role');
+        if ($role !== 'admin') {
+            redirect(base_url('home'));
+            return;
+        }
+        
         if (!$_POST) {
             redirect(base_url('product'));
         }
@@ -154,6 +168,12 @@ class Product extends MY_Controller {
 
     public function search($page = null)
     {
+        $role = $this->session->userdata('role');
+        if ($role !== 'admin') {
+            redirect(base_url('home'));
+            return;
+        }
+        
         if (isset($_POST['keyword'])) {
             $this->session->set_userdata('keyword', $this->input->post('keyword'));
         } else {
