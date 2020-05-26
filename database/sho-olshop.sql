@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2020 at 09:54 AM
+-- Generation Time: May 26, 2020 at 01:40 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -35,13 +35,6 @@ CREATE TABLE `cart` (
   `qty` int(11) NOT NULL,
   `subtotal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `id_user`, `id_product`, `qty`, `subtotal`) VALUES
-(20, 1, 2, 1, 15000);
 
 -- --------------------------------------------------------
 
@@ -157,7 +150,10 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`id`, `id_category`, `slug`, `title`, `description`, `price`, `is_available`, `image`) VALUES
 (1, 1, 'lemon-fresco', 'Lemon Fresco', 'Minuman jahe dengan ekstrak Lemon, Fell Fresh\r\nCool & Warm Sensation', 15000, 1, 'Minuman1.png'),
 (2, 1, 'lemongresa-fresco', 'Lemongresa Fresco', 'Minuman rempah sereh, Minuman kekinian banget', 15000, 1, 'Minuman2.png'),
-(5, 1, 'wedang-jahe', 'Wedang Jahe', 'Ini adalah wedang', 25000, 1, 'wedang-jahe-20200513174208.png');
+(5, 1, 'wedang-jahe', 'Wedang Jahe', 'Ini adalah wedang', 25000, 1, 'wedang-jahe-20200513174208.png'),
+(6, 1, 'cinamon-red-ginger-juice', 'Cinamon Red Ginger Juice', 'Jus jahe merah & kayu manis', 15000, 1, 'cinamon-red-ginger-juice-20200526133036.png'),
+(7, 1, 'lemongrass-red-ginger-juice', 'Lemongrass Red Ginger Juice', 'Jus jahe merah & sereh', 15000, 1, 'lemongrass-red-ginger-juice-20200526133148.png'),
+(8, 1, 'lemon-honey-red-ginger-juice', 'Lemon Honey Red Ginger Juice', 'Jus jahe merah lemon manis', 15000, 1, 'lemon-honey-red-ginger-juice-20200526133242.png');
 
 -- --------------------------------------------------------
 
@@ -237,7 +233,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -267,7 +263,7 @@ ALTER TABLE `orders_detail`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`
