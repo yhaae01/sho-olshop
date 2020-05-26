@@ -5,7 +5,7 @@ class Shop_model extends MY_Model
 {
 
     protected $table    = 'product';
-    protected $perPage  = 3;
+    protected $perPage  = 6;
 
 }
 
