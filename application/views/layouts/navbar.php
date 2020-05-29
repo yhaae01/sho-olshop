@@ -44,13 +44,13 @@
                     <?php if ($role == 'admin') : ?> 
                     <div class="dropdown-menu" aria-labelledby="dropdown2">
                         <a href="<?= base_url('Profile'); ?>" class="dropdown-item">Profile</a>
-                        <a href="<?= base_url('/logout'); ?>" class="dropdown-item">Keluar</a>
+                        <a href="<?= base_url('/logout'); ?>" onclick="return confirm('Yakin ingin keluar?')" class="dropdown-item">Keluar</a>
                     </div>
                     <?php else : ?>
                     <div class="dropdown-menu" aria-labelledby="dropdown2">
                         <a href="<?= base_url('Profile'); ?>" class="dropdown-item">Profile</a>
                         <a href="<?= base_url('myorder'); ?>" class="dropdown-item">Pesananku</a>
-                        <a href="<?= base_url('/logout'); ?>" class="dropdown-item">Keluar</a>
+                        <a href="<?= base_url('logout'); ?>" onclick="return confirm('Yakin ingin keluar?')" class="dropdown-item">Keluar</a>
                     </div>
                     <li class="nav-item">
                         <a href="<?= base_url('cart'); ?>" class="nav-link"> <i class="fas fa-shopping-cart"></i> Keranjang (<?= getCart(); ?>) </a>
