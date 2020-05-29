@@ -1,6 +1,6 @@
 <main role="main" class="container">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-10 mx-auto">
 			<div class="card">
 				<div class="card-header">
 					Konfirmasi Pesanan #<?= $order->invoice ?>
@@ -22,12 +22,12 @@
 						</div>
 						<div class="form-group">
 							<label for="">No Rekening</label>
-							<input type="text" name="account_number" value="<?= $input->account_number ?>" class="form-control">
+							<input type="text" name="account_number" class="form-control col-3" onkeypress="return hanyaAngka(event)" maxlength="20" value="<?= $input->account_number ?>">
 							<?= form_error('account_number') ?>
 						</div>
 						<div class="form-group">
 							<label for="">Sebesar</label>
-							<input type="number" name="nominal" value="<?= $input->nominal ?>" class="form-control">
+							<input type="text" name="nominal" value="<?= $input->nominal ?>" class="form-control col-3" onkeypress="return hanyaAngka(event)" maxlength="10">
 							<?= form_error('nominal') ?>
 						</div>
 						<div class="form-group">
