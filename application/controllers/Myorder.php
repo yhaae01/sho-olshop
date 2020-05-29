@@ -19,7 +19,7 @@ class Myorder extends MY_Controller
 
     public function index()
     {
-        $data['title']      = 'Daftar Order';
+        $data['title']      = 'Daftar Pesanan';
         $data['content']    = $this->myorder->where('id_user', $this->id)
                 ->orderBy('date', 'DESC')->get();
         $data['page']       = 'pages/myorder/index';

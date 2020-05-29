@@ -1,6 +1,7 @@
 <!-- Content -->
 <main role="main" class="container">
 <?php $this->load->view('layouts/alert'); ?>
+<?= $this->session->flashdata('message'); ?>
     <div class="row">
         <div class="col-md-9">
             <!-- Kategori urutkan harga -->

@@ -66,6 +66,11 @@ class User_model extends MY_Model
         }
     }
 
+    public function getUserWhere($where = null)
+    {
+        return $this->db->get_where('user', $where);
+    }
+
 }
 
 /* End of file User_model.php */

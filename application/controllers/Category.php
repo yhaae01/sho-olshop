@@ -17,7 +17,7 @@ class Category extends MY_Controller
 
     public function index($page = null)
     {
-        $data['title']      = 'Admin Kategori';
+        $data['title']      = 'Admin: Kategori';
         $data['content']    = $this->category->paginate($page)->get();
         $data['total_rows'] = $this->category->count(); 
         $data['pagination'] = $this->category->makePagination(base_url('category'), 2, $data['total_rows']);

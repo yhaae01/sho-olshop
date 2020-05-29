@@ -2,7 +2,19 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends MY_Controller {
+class Home extends MY_Controller 
+{
+
+    public function __construct()
+    {
+        parent::__construct();
+        $role = $this->session->userdata('role');
+
+        if ($role == 'admin') {
+            redirect(base_url('admin'));
+            return;
+        }
+    }
 
     public function index($page = null)
 	{

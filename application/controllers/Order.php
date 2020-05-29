@@ -15,7 +15,7 @@ class Order extends MY_Controller
 
     public function index($page = null)
     {
-        $data['title']      = 'Pesanan';
+        $data['title']      = 'Admin: Pesanan';
         $data['content']    = $this->order->orderBy('date', 'DESC')->paginate($page)->get();
         $data['total_rows'] = $this->order->count(); 
         $data['pagination'] = $this->order->makePagination(base_url('order'), 2, $data['total_rows']);

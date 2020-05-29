@@ -51,3 +51,31 @@
             return false;
         }
     }
+
+    function cek_login()
+    {
+        $ci = get_instance();
+
+        if (!$ci->session->userdata('email')) {
+            $ci->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akses ditolak. Silahkah login terlebih dahulu!! </div>');
+            if ($ci->session->userdata('role') == 'admin') {
+                redirect('admin');
+            } else {
+                redirect('home');
+            }
+        } else {
+            $role       = $ci->session->userdata('role');
+            $id_user    = $ci->session->userdata('id');
+        }
+    }
+
+    function cek_user()
+    {
+        $ci     = get_instance();
+        $role   = $ci->session->userdata('role');
+        
+        if ($role != 'admin') {
+            $ci->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Akses tidak diizinkan </div>');
+            redirect('home');
+        }
+    }
