@@ -1,7 +1,7 @@
-<?php 
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Order extends MY_Controller 
+class Order extends MY_Controller
 {
     public function __construct()
     {
@@ -15,9 +15,10 @@ class Order extends MY_Controller
 
     public function index($page = null)
     {
+        $this->session->unset_userdata('keyword');
         $data['title']      = 'Admin: Pesanan';
         $data['content']    = $this->order->orderBy('date', 'DESC')->paginate($page)->get();
-        $data['total_rows'] = $this->order->count(); 
+        $data['total_rows'] = $this->order->count();
         $data['pagination'] = $this->order->makePagination(base_url('order'), 2, $data['total_rows']);
         $data['page']       = 'pages/order/index';
 
@@ -26,28 +27,28 @@ class Order extends MY_Controller
 
     public function detail($id)
     {
-        $data['order']	= $this->order->where('id', $id)->first();
-		if (!$data['order']) {
-			$this->session->set_flashdata('warning', 'Data tidak ditemukan.');
-			redirect(base_url('/order'));
+        $data['order']    = $this->order->where('id', $id)->first();
+        if (!$data['order']) {
+            $this->session->set_flashdata('warning', 'Data tidak ditemukan.');
+            redirect(base_url('/order'));
         }
-        
-        $this->order->table	= 'orders_detail';
-        $data['order_detail']	= $this->order->select([
-                'orders_detail.id_orders', 'orders_detail.id_product', 'orders_detail.qty',
-                'orders_detail.subtotal', 'product.title', 'product.image', 'product.price'
-            ])
+
+        $this->order->table    = 'orders_detail';
+        $data['order_detail']    = $this->order->select([
+            'orders_detail.id_orders', 'orders_detail.id_product', 'orders_detail.qty',
+            'orders_detail.subtotal', 'product.title', 'product.image', 'product.price'
+        ])
             ->join('product')
             ->where('orders_detail.id_orders', $id)
             ->get();
 
         if ($data['order']->status !== 'waiting') {
             $this->order->table = 'orders_confirm';
-            $data['order_confirm']	= $this->order->where('id_orders', $id)->first();
+            $data['order_confirm']    = $this->order->where('id_orders', $id)->first();
         }
 
         $data['title']          = 'Detail Pesanan';
-        $data['page']			= 'pages/order/detail';
+        $data['page']            = 'pages/order/detail';
 
         $this->view($data);
     }
@@ -93,9 +94,13 @@ class Order extends MY_Controller
 
     public function search($page = null)
     {
+        $keyword = "";
         if (isset($_POST['keyword'])) {
             $this->session->set_userdata('keyword', $this->input->post('keyword'));
-        } else {
+        } else if ($this->session->userdata('keyword')) {
+            $keyword = $this->session->userdata('keyword');
+        } else if (empty($keyword)) {
+            $this->session->unset_userdata('keyword');
             redirect(base_url('order'));
         }
 
@@ -103,10 +108,10 @@ class Order extends MY_Controller
 
         $data['title']      = 'Admin Pesanan';
         $data['content']    = $this->order->like('invoice', $keyword)
-                                ->paginate($page)
-                                ->orderBy('date', 'DESC')
-                                ->get();
-        $data['total_rows'] = $this->order->like('invoice', $keyword)->count(); 
+            ->paginate($page)
+            ->orderBy('date', 'DESC')
+            ->get();
+        $data['total_rows'] = $this->order->like('invoice', $keyword)->count();
         $data['pagination'] = $this->order->makePagination(base_url('order/search'), 3, $data['total_rows']);
         $data['page']       = 'pages/order/index';
 
@@ -118,7 +123,6 @@ class Order extends MY_Controller
         $this->session->unset_userdata('keyword');
         redirect(base_url('order'));
     }
-
 }
 
 /* End of file Order.php */

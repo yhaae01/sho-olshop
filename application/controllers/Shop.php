@@ -76,8 +76,6 @@ class Shop extends MY_Controller
             $this->session->unset_userdata('keyword');
             redirect(base_url());
         }
-        $keyword = $this->session->userdata('keyword');
-
         $keyword            = $this->session->userdata('keyword');
 
         $data['title']      = 'Pencarian Produk';

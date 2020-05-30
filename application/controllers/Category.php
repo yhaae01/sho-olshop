@@ -1,8 +1,8 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Category extends MY_Controller 
+class Category extends MY_Controller
 {
 
     public function __construct()
@@ -17,9 +17,10 @@ class Category extends MY_Controller
 
     public function index($page = null)
     {
+        $this->session->unset_userdata('keyword');
         $data['title']      = 'Admin: Kategori';
         $data['content']    = $this->category->paginate($page)->get();
-        $data['total_rows'] = $this->category->count(); 
+        $data['total_rows'] = $this->category->count();
         $data['pagination'] = $this->category->makePagination(base_url('category'), 2, $data['total_rows']);
         $data['page']       = 'pages/category/index';
 
@@ -113,9 +114,13 @@ class Category extends MY_Controller
 
     public function search($page = null)
     {
+        $keyword = "";
         if (isset($_POST['keyword'])) {
             $this->session->set_userdata('keyword', $this->input->post('keyword'));
-        } else {
+        } else if ($this->session->userdata('keyword')) {
+            $keyword = $this->session->userdata('keyword');
+        } else if (empty($keyword)) {
+            $this->session->unset_userdata('keyword');
             redirect(base_url('category'));
         }
 
@@ -123,7 +128,7 @@ class Category extends MY_Controller
 
         $data['title']      = 'Admin Kategori';
         $data['content']    = $this->category->like('title', $keyword)->paginate($page)->get();
-        $data['total_rows'] = $this->category->like('title', $keyword)->count(); 
+        $data['total_rows'] = $this->category->like('title', $keyword)->count();
         $data['pagination'] = $this->category->makePagination(base_url('category/search'), 3, $data['total_rows']);
         $data['page']       = 'pages/category/index';
 
@@ -153,7 +158,6 @@ class Category extends MY_Controller
 
         return true;
     }
-
 }
 
 /* End of file Category.php */
