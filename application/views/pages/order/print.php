@@ -59,9 +59,9 @@
 		</tbody>
     </table>
     
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
         window.print();
-    </script> -->
+    </script>
 
 </body>
 
