@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2020 at 01:40 PM
+-- Generation Time: May 30, 2020 at 08:44 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -80,7 +80,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `id_user`, `date`, `invoice`, `total`, `name`, `address`, `phone`, `status`, `resi`) VALUES
-(9, 1, '2020-05-14', '120200514114702', 60000, 'surya intan permana', 'bogor', '085214032743', 'paid', 'a');
+(9, 1, '2020-05-14', '120200514114702', 60000, 'surya intan permana', 'bogor', '085214032743', 'delivered', '235673412210'),
+(10, 7, '2020-05-29', '720200529122330', 50000, 'Dhea Fahira', 'Lewiliang', '089911112', 'delivered', '34332285544');
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,8 @@ CREATE TABLE `orders_confirm` (
 --
 
 INSERT INTO `orders_confirm` (`id`, `id_orders`, `account_name`, `account_number`, `nominal`, `note`, `image`) VALUES
-(4, 9, 'Surya Intan Permana', '0672626793', 60000, '-', '120200514114702-20200514114733.png');
+(4, 9, 'Surya Intan Permana', '0672626793', 60000, '-', '120200514114702-20200514114733.png'),
+(5, 10, 'Dhea Fahira', '0768686793', 50000, '-', '720200529122330-20200529122802.jpg');
 
 -- --------------------------------------------------------
 
@@ -124,7 +126,8 @@ CREATE TABLE `orders_detail` (
 --
 
 INSERT INTO `orders_detail` (`id`, `id_orders`, `id_product`, `qty`, `subtotal`) VALUES
-(11, 9, 2, 4, 60000);
+(11, 9, 2, 4, 60000),
+(12, 10, 5, 2, 50000);
 
 -- --------------------------------------------------------
 
@@ -150,7 +153,7 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`id`, `id_category`, `slug`, `title`, `description`, `price`, `is_available`, `image`) VALUES
 (1, 1, 'lemon-fresco', 'Lemon Fresco', 'Minuman jahe dengan ekstrak Lemon, Fell Fresh\r\nCool & Warm Sensation', 15000, 1, 'Minuman1.png'),
 (2, 1, 'lemongresa-fresco', 'Lemongresa Fresco', 'Minuman rempah sereh, Minuman kekinian banget', 15000, 1, 'Minuman2.png'),
-(5, 1, 'wedang-jahe', 'Wedang Jahe', 'Ini adalah wedang', 25000, 1, 'wedang-jahe-20200513174208.png'),
+(5, 1, 'wedang-jahe', 'Wedang Jahe', 'Komposisi: Gula batu, Jahe merah instan. Kayu secang, daun cengkih, daun pala, dll.', 25000, 1, 'wedang-jahe-20200513174208.png'),
 (6, 1, 'cinamon-red-ginger-juice', 'Cinamon Red Ginger Juice', 'Jus jahe merah & kayu manis', 15000, 1, 'cinamon-red-ginger-juice-20200526133036.png'),
 (7, 1, 'lemongrass-red-ginger-juice', 'Lemongrass Red Ginger Juice', 'Jus jahe merah & sereh', 15000, 1, 'lemongrass-red-ginger-juice-20200526133148.png'),
 (8, 1, 'lemon-honey-red-ginger-juice', 'Lemon Honey Red Ginger Juice', 'Jus jahe merah lemon manis', 15000, 1, 'lemon-honey-red-ginger-juice-20200526133242.png');
@@ -166,7 +169,7 @@ CREATE TABLE `user` (
   `name` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` enum('admin','member') NOT NULL,
+  `role` enum('admin','member','','') NOT NULL,
   `is_active` tinyint(1) NOT NULL DEFAULT 1,
   `image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -177,7 +180,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `role`, `is_active`, `image`) VALUES
 (1, 'surya intan permana', 'surya@gmail.com', '$2y$10$tBvoZfN3tYPk8/ith4H5PeZRLUIVHtXzAVWGnIcYFOBlWKm8kcasy', 'admin', 1, 'surya-intan-permana-20200513155512.jpg'),
-(7, 'dhea fahira', 'dhea@gmail.com', '$2y$10$560IrnMU0xfHmCeDMf3nXOVtDvf5uGQsnp1bAoHHdKj.7Z7ji3AZe', 'member', 0, NULL);
+(7, 'dhea fahira', 'dhea@gmail.com', '$2y$10$560IrnMU0xfHmCeDMf3nXOVtDvf5uGQsnp1bAoHHdKj.7Z7ji3AZe', 'member', 1, NULL);
 
 --
 -- Indexes for dumped tables
@@ -233,7 +236,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -245,19 +248,19 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `orders_confirm`
 --
 ALTER TABLE `orders_confirm`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `orders_detail`
 --
 ALTER TABLE `orders_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `product`

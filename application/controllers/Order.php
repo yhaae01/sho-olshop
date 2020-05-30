@@ -84,6 +84,13 @@ class Order extends MY_Controller
         redirect(base_url("order/detail/$id"));
     }
 
+    public function print()
+    {
+        $data['order']       = $this->order->getOrders()->result_array();
+
+        $this->load->view('pages/order/print', $data);
+    }
+
     public function search($page = null)
     {
         if (isset($_POST['keyword'])) {

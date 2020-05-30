@@ -5,6 +5,8 @@
         <h4 class="pt-3 pb-3">Pesanan</h4>
             <div class="card">
                 <div class="card-header">
+                    <a href="<?= base_url('order/print'); ?>" class="btn btn-sm btn-danger"><i class="far fa-lg fa-fw fa-file-pdf"></i>
+                        Print</a>
                     <div class="float-right">
                         <?= form_open(base_url('order/search'), ['method' => 'POST']); ?>
                             <div class="input-group">
