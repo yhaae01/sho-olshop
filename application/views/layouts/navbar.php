@@ -13,16 +13,16 @@
                 <?php $role = $this->session->userdata('role'); ?>
                 <?php if ($role == 'admin') : ?> 
                 <li class="nav-item ">
-                    <a class="nav-link" href="<?= base_url('category'); ?>" class="dropdown-item">Kategori</a>
+                    <a class="nav-link" href="<?= base_url('order'); ?>" class="dropdown-item">Pesanan</a>                   
                 </li>
                 <li class="nav-item "> 
                     <a class="nav-link" href="<?= base_url('product'); ?>" class="dropdown-item">Produk</a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="<?= base_url('order'); ?>" class="dropdown-item">Pesanan</a>                   
+                    <a class="nav-link" href="<?= base_url('user'); ?>" class="dropdown-item">Pengguna</a>  
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="<?= base_url('user'); ?>" class="dropdown-item">Pengguna</a>  
+                    <a class="nav-link" href="<?= base_url('category'); ?>" class="dropdown-item">Kategori</a>
                 </li>
                 <?php endif; ?>
             </ul>
