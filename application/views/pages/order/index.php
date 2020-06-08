@@ -32,6 +32,7 @@
                                 <th>Tanggal</th>
                                 <th>Total Belanja</th>
                                 <th>Status</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,6 +45,9 @@
                                 <td> Rp.<?= number_format($row->total, 0, ',', '.') ?>,- </td>
                                 <td>
                                     <?php $this->load->view('layouts/status', ['status' => $row->status]); ?>
+                                </td>
+                                <td>
+                                    <a href="<?= base_url("order/detail/$row->id"); ?>"><i class="fas fa-edit text-info"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
