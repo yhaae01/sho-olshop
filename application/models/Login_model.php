@@ -24,8 +24,8 @@ class Login_model extends MY_Model
                 'rules'     => 'required|trim|valid_email',
             ],
             [
-                'field'     => 'email',
-                'label'     => 'Email',
+                'field'     => 'password',
+                'label'     => 'Password',
                 'rules'     => 'required'
             ]
         ];
