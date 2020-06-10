@@ -8,7 +8,7 @@
                     <?= form_open('login', ['method' => 'POST']); ?>
                         <div class="form-group">
                             <label for="email">Email </label>
-                            <?= form_input(['type' => 'email', 'name' => 'email', 'value' => $input->email, 'class' => 'form-control']); ?>
+                            <?= form_input(['type' => 'email', 'name' => 'email','autocomplete' => 'no', 'value' => $input->email, 'class' => 'form-control']); ?>
                             <?= form_error('email'); ?>
                         </div>
                         <div class="form-group">

@@ -1,27 +1,54 @@
 <div class="container">
-    <h1>Hello, <?= ucwords($this->session->userdata('name')); ?></h1>
+    <h2>Hello, <?= ucwords($this->session->userdata('name')); ?></h2>
 
-    <!-- Total Pesanan -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-info shadow h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Pesanan</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                            <!-- <?php 
-                                $totalOrder = $this->order->getOrders(); 
-                                echo $totalOrder; 
-                            ?>  -->
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                        <i class="fas fa-user-tag fa-2x text-gray-300"></i>
-                    </div>
+    <div class="row mt-5">
+    
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Total Pesanan</h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-text text-center mb-3">
+
+                    </h3>
+                    <a href="<?= base_url('order'); ?>" class="btn btn-outline-primary btn-block btn-sm">Detail</a>
                 </div>
             </div>
         </div>
+
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Total Pengguna</h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-text text-center mb-3">
+                        <?= 
+                            $this->Admin_model->getUserWhere(['role' => 'member'])->num_rows(); 
+                        ?>
+                    </h3>
+                    <a href="<?= base_url('user'); ?>" class="btn btn-outline-primary btn-block btn-sm">Detail</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Total Produk</h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-text text-center mb-3">
+                        <?= 
+                            $this->Admin_model->getProductWhere(['is_available' => 1])->num_rows(); 
+                        ?>
+                    </h3>
+                    <a href="<?= base_url('product'); ?>" class="btn btn-outline-primary btn-block btn-sm">Detail</a>
+                </div>
+            </div>
+        </div>
+        
     </div>
-    <!-- End Total Pesanan -->
 
 </div>
