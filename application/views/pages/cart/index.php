@@ -55,18 +55,6 @@
                                 </tr>
                             <?php endforeach; ?>
                             <tr>
-                                <td colspan="3"> <strong>Pengiriman:</strong></td>
-                                <td class="text-center">
-                                    <div class="form-group">
-                                        <select class="form-control" name="ekspedisi">
-                                            <option value="jnt">JNT</option>
-                                            <option value="jne">JNE</option>
-                                            <option value="sicepat">Sicepat</option>
-                                        </select>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
                                 <td colspan="3"><strong> Total: </strong></td>
                                 <td class="text-center"><strong> Rp. <?= number_format(array_sum(array_column($content, 'subtotal')), 0, ',', '.'); ?>,- </strong></td>
                             </tr>
