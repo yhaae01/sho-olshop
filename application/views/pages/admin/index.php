@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Hello, <?= ucwords($this->session->userdata('name')); ?></h2>
+    <h2>Hai, <?= ucwords($this->session->userdata('name')); ?></h2>
 
     <div class="row mt-5">
     
@@ -9,9 +9,40 @@
                     <h5>Total Pesanan</h5>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-text text-center mb-3">
-
-                    </h3>
+                    <h5 class="card-text mb-3">Belum Dibayar 
+                        <p class="badge badge-pill badge-primary">
+                            <?= 
+                            $this->Admin_model->getOrderWhere(['status' => 'waiting'])->num_rows(); 
+                            ?>
+                        </p> 
+                    </h5>
+                    <h5 class="card-text mb-3">Dibayar 
+                        <p class="badge badge-pill badge-secondary">
+                            <?= 
+                                $this->Admin_model->getOrderWhere(['status' => 'paid'])->num_rows(); 
+                            ?>
+                        </p> 
+                    </h5>
+                    <h5 class="card-text mb-3">Dikirim 
+                        <p class="badge badge-pill badge-success">
+                            <?= 
+                                $this->Admin_model->getOrderWhere(['status' => 'delivered'])->num_rows(); 
+                            ?>
+                        </p> 
+                    </h5>
+                    <h5 class="card-text mb-3">Dibatalkan 
+                        <p class="badge badge-pill badge-danger">
+                            <?= 
+                                $this->Admin_model->getOrderWhere(['status' => 'cancel'])->num_rows(); 
+                            ?>
+                        </p> 
+                    </h5>
+                    <!-- Total semua pesanan -->
+                    <!-- <h3 class="card-text text-center mb-3"> -->
+                        <!-- <?= 
+                            $this->Admin_model->getOrderWhere(['total' >= 1])->num_rows(); 
+                        ?> -->
+                    <!-- </h3> -->
                     <a href="<?= base_url('order'); ?>" class="btn btn-outline-primary btn-block btn-sm">Detail</a>
                 </div>
             </div>
