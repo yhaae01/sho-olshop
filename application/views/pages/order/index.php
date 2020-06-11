@@ -47,7 +47,7 @@
                                     <?php $this->load->view('layouts/status', ['status' => $row->status]); ?>
                                 </td>
                                 <td>
-                                    <a href="<?= base_url("order/detail/$row->id"); ?>"><i class="fas fa-edit text-info"></i></a>
+                                    <a href="<?= base_url("order/detail/$row->id"); ?>"><i class="fas fa-info-circle text-info"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
