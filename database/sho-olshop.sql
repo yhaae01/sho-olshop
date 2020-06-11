@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2020 at 08:44 AM
+-- Generation Time: Jun 11, 2020 at 03:37 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -35,6 +35,13 @@ CREATE TABLE `cart` (
   `qty` int(11) NOT NULL,
   `subtotal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `id_user`, `id_product`, `qty`, `subtotal`) VALUES
+(24, 8, 5, 2, 50000);
 
 -- --------------------------------------------------------
 
@@ -80,8 +87,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `id_user`, `date`, `invoice`, `total`, `name`, `address`, `phone`, `status`, `resi`) VALUES
-(9, 1, '2020-05-14', '120200514114702', 60000, 'surya intan permana', 'bogor', '085214032743', 'delivered', '235673412210'),
-(10, 7, '2020-05-29', '720200529122330', 50000, 'Dhea Fahira', 'Lewiliang', '089911112', 'delivered', '34332285544');
+(9, 1, '2020-05-14', '120200514114702', 60000, 'surya intan permana', 'bogor', '085214032743', 'paid', '235673412210'),
+(10, 7, '2020-05-29', '720200529122330', 50000, 'Dhea Fahira', 'Lewiliang', '089911112', 'cancel', '34332285544');
 
 -- --------------------------------------------------------
 
@@ -180,7 +187,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `name`, `email`, `password`, `role`, `is_active`, `image`) VALUES
 (1, 'surya intan permana', 'surya@gmail.com', '$2y$10$tBvoZfN3tYPk8/ith4H5PeZRLUIVHtXzAVWGnIcYFOBlWKm8kcasy', 'admin', 1, 'surya-intan-permana-20200513155512.jpg'),
-(7, 'dhea fahira', 'dhea@gmail.com', '$2y$10$560IrnMU0xfHmCeDMf3nXOVtDvf5uGQsnp1bAoHHdKj.7Z7ji3AZe', 'member', 1, NULL);
+(7, 'dhea fahira', 'dhea@gmail.com', '$2y$10$560IrnMU0xfHmCeDMf3nXOVtDvf5uGQsnp1bAoHHdKj.7Z7ji3AZe', 'member', 1, NULL),
+(8, 'chintya meidina', 'cinti@gmail.com', '$2y$10$HxJ5MGZeeoLT3Dh1jTjup.LiCkLsYYKYQaxIj457kK6quxTxvSbxy', 'member', 1, NULL),
+(9, 'eka wardana', 'eka@gmail.com', '$2y$10$94GGqwCpb4PU2LA4fe4hKeNxXDT7m33ymJzUmzKSFDXrr.6uVPuWW', 'member', 1, NULL);
 
 --
 -- Indexes for dumped tables
@@ -236,7 +245,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -272,7 +281,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
