@@ -27,7 +27,7 @@
 						</div>
 						<div class="form-group">
 							<label for="">Sebesar</label>
-							<input type="text" name="nominal" value="<?= $input->nominal ?>" class="form-control col-3" onkeypress="return hanyaAngka(event)" maxlength="10">
+							<input type="text" name="nominal" readonly value="<?= $order->total ?>" class="form-control col-2" onkeypress="return hanyaAngka(event)" maxlength="10">
 							<?= form_error('nominal') ?>
 						</div>
 						<div class="form-group">

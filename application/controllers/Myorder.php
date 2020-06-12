@@ -60,6 +60,8 @@ class Myorder extends MY_Controller
     public function confirm($invoice)
 	{
 		$data['order']	= $this->myorder->where('invoice', $invoice)->first();
+		$data['total']  = $this->myorder->get('total');
+		
 		if (!$data['order']) {
 			$this->session->set_flashdata('warning', 'Data tidak ditemukan.');
 			redirect(base_url('/myorder'));
