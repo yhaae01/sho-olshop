@@ -9,7 +9,7 @@
                         <?= isset($input->id) ? form_hidden('id', $input->id) : '' ?>
                         <div class="form-group">
                             <label for="produk">Produk</label>
-                            <?= form_input('title', $input->title, ['class' => 'form-control', 'autofocus' => true, 'id' => 'title', 'onkeyup' => 'createSlug()']); ?>
+                            <?= form_input('title', $input->title, ['class' => 'form-control', 'autofocus' => true, 'id' => 'title', 'onkeyup' => 'createSlug()', 'autocomplete' => 'no']); ?>
                             <?= form_error('title'); ?>
                         </div>
                         <div class="form-group">
@@ -20,7 +20,7 @@
                         <div class="form-group">
                             <label for="harga">Harga</label>
                             <?= 
-                            form_input(['type' => 'text', 'name' => 'price', 'value' => $input->price, 'class' => 'form-control col-3', 'onkeypress' => 'return hanyaAngka(event)']); ?>
+                            form_input(['type' => 'text', 'name' => 'price', 'value' => $input->price, 'class' => 'form-control col-3', 'onkeypress' => 'return hanyaAngka(event)', 'maxlength' => '7']); ?>
                             <?= form_error('price'); ?>
                         </div>
                         <div class="form-group">

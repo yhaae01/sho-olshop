@@ -8,7 +8,7 @@
                         <?= isset($input->id) ? form_hidden('id', $input->id) : '' ?>
                         <div class="form-group">
                             <label for="title">Kategori</label>
-                            <?= form_input('title', $input->title, ['class' => 'form-control', 'autofocus' => true, 'id' => 'title', 'onkeyup' => 'createSlug()']); ?>
+                            <?= form_input('title', $input->title, ['class' => 'form-control', 'autofocus' => true, 'id' => 'title', 'onkeyup' => 'createSlug()', 'autocomplete' => 'no']); ?>
                             <?= form_error('title'); ?>
                         </div>
                         <div class="form-group">

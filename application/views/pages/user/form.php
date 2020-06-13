@@ -9,12 +9,12 @@
                         <?= isset($input->id) ? form_hidden('id', $input->id) : '' ?>
                         <div class="form-group">
                             <label for="name">Nama :</label>
-                            <?= form_input('name', $input->name, ['class' => 'form-control', 'autofocus' => true]); ?>
+                            <?= form_input('name', $input->name, ['class' => 'form-control', 'autofocus' => true, 'autocomplete' => 'no']); ?>
                             <?= form_error('name'); ?>
                         </div>
                         <div class="form-group">
                             <label for="email">Email :</label>
-                            <?= form_input(['type' => 'email', 'name' => 'email', 'value' => $input->email, 'class' => 'form-control']); ?>
+                            <?= form_input(['type' => 'email', 'name' => 'email', 'value' => $input->email, 'class' => 'form-control', 'autocomplete' => 'no']); ?>
                             <?= form_error('email'); ?>
                         </div>
                         <div class="form-group">

@@ -13,7 +13,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Email :</label>
-                            <?= form_input(['type' => 'email', 'name' => 'email', 'value' => $input->email, 'class' => 'form-control']); ?>
+                            <?= form_input(['type' => 'email', 'name' => 'email', 'value' => $input->email, 'class' => 'form-control', 'autocomplete' => 'no']); ?>
                             <?= form_error('email'); ?>
                         </div>
                         <div class="form-group">
