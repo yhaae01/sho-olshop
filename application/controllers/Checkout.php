@@ -19,7 +19,8 @@ class Checkout extends MY_Controller
 
     public function index($input = null)
     {
-        $this->checkout->table = 'cart';
+		$this->checkout->table = 'cart';
+		$data['provinsi']	   = $this->checkout->getProv();
 
 		$data['cart']	= $this->checkout->select([
 				'cart.id', 'cart.qty', 'cart.subtotal',
@@ -39,7 +40,34 @@ class Checkout extends MY_Controller
 		$data['page']	= 'pages/checkout/index';
 
 		$this->view($data);
-    }
+	}
+	
+	public function getKab($id_prov)
+	{
+		$kab=$this->checkout->getKab($id_prov);
+		echo"<option value=''>Pilih Kota/Kab</option>";
+		foreach($kab as $k){
+			echo "<option value='{$k->id_kab}'>{$k->nama}</option>";
+		}
+	}
+	
+	public function getKec($id_kab)
+	{
+		$kec=$this->checkout->getKec($id_kab);
+		echo"<option value=''>Pilih Kecamatan</option>";
+		foreach($kec as $k){
+			echo "<option value='{$k->id_kec}'>{$k->nama}</option>";
+		}
+	}
+
+	public function getKel($id_kec)
+	{
+		$kel=$this->checkout->getKel($id_kec);
+		echo"<option value=''>Pilih Kelurahan/Desa</option>";
+		foreach($kel as $k){
+			echo "<option value='{$k->id_kel}'>{$k->nama}</option>";
+		}
+	}
 
     public function create()
 	{

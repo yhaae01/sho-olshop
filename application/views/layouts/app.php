@@ -33,6 +33,8 @@
     <script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"> </script>
     <script src="<?= base_url('assets/js/app.js') ?>"></script>
     <script src="<?= base_url('assets/js/jquery.nice-number.js') ?>"></script>
+    <script src="<?= base_url('assets/js/daerah.js') ?>"></script>
+    
     <script type="text/javascript">
         $(function(){
             $('input[type="number"]').niceNumber();

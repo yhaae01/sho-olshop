@@ -11,8 +11,39 @@
 							<input type="text" class="form-control" name="name" value="<?= $input->name ?>">
 							<?= form_error('name') ?>
 						</div>
+						<div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="prop">Provinsi</label>
+                                <select id="prop" name="prop" class="form-control" onchange="ajaxkota(this.value)">
+                                    <option selected>Pilih Provinsi</option>
+                                    <?php 
+                                        foreach($provinsi as $data){
+                                            echo '<option value="'.$data->id_prov.'">'.$data->nama.'</option>';
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="kota">Kota/Kabupaten</label>
+                                <select id="kota" name="kota" class="form-control" onchange="ajaxkec(this.value)">
+                                    <option selected>Pilih Kota</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="kec">Kecamatan</label>
+                                <select id="kec" name="kec" class="form-control" onchange="ajaxkel(this.value)">
+                                    <option selected>Pilih Kecamatan</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="kel">Kelurahan/Desa</label>
+                                <select id="kel" name="kel" class="form-control">
+                                    <option selected>Pilih Kelurahan</option>
+                                </select>
+                            </div>
+                        </div>
 						<div class="form-group">
-							<label for="">Alamat</label>
+							<label for="">Alamat Lengkap</label>
 							<textarea name="address" id="" cols="30" rows="5" class="form-control"><?= $input->address ?></textarea>
 							<?= form_error('address') ?>
 						</div>
