@@ -1,21 +1,21 @@
 var ajaxku = buatajax();
 
 function ajaxkota(id) {
-	var url = "select_daerah.php?prop=" + id + "&sid=" + Math.random();
+	var url = "checkout/getKab/" + id + "/" + Math.random();
 	ajaxku.onreadystatechange = stateChanged;
 	ajaxku.open("GET", url, true);
 	ajaxku.send(null);
 }
 
 function ajaxkec(id) {
-	var url = "select_daerah.php?kab=" + id + "&sid=" + Math.random();
+	var url = "checkout/getKec/" + id + "/" + Math.random();
 	ajaxku.onreadystatechange = stateChangedKec;
 	ajaxku.open("GET", url, true);
 	ajaxku.send(null);
 }
 
 function ajaxkel(id) {
-	var url = "select_daerah.php?kec=" + id + "&sid=" + Math.random();
+	var url = "checkout/getKel/" + id + "/" + Math.random();
 	ajaxku.onreadystatechange = stateChangedKel;
 	ajaxku.open("GET", url, true);
 	ajaxku.send(null);
