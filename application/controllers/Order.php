@@ -92,6 +92,14 @@ class Order extends MY_Controller
         $this->load->view('pages/order/print', $data);
     }
 
+    public function excel()
+    {
+        $data['title']       = "Laporan Data Penjualan";
+        $data['order']       = $this->order->getOrders()->result_array();
+
+        $this->load->view('pages/order/excel', $data);
+    }
+
     public function search($page = null)
     {
         $keyword = "";

@@ -7,6 +7,8 @@
                 <div class="card-header">
                     <a href="<?= base_url('order/print'); ?>" target="_blank" class="btn btn-sm btn-danger"><i class="far fa-lg fa-fw fa-file-pdf"></i>
                         Print</a>
+                    <a href="<?= base_url('order/excel'); ?>" class="btn btn-sm btn-success"><i class="far fa-lg fa-fw fa-file-excel"></i>
+                        Excel</a>
                     <div class="float-right">
                         <?= form_open(base_url('order/search'), ['method' => 'POST']); ?>
                         <div class="input-group">
